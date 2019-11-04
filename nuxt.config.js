@@ -23,13 +23,14 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    '@/theme/general.scss',
     'element-ui/lib/theme-chalk/index.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/globals'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -49,8 +50,7 @@ module.exports = {
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {
-  },
+  axios: {},
   /*
   ** Build configuration
   */
