@@ -46,8 +46,10 @@
         aspernatur beatae dignissimos nam odit perferendis porro quae.</p>
     </main>
     <footer>
-      <app-comment-form/>
-      <div class="comments" v-if="false">
+      <app-comment-form
+        @created="createCommentHandler"
+        v-if="canAddComment"/>
+      <div class="comments" v-if="true">
         <app-comment
           v-for="comment in 4"
           :key="comment"
@@ -67,8 +69,18 @@
     validate ({ params }) {
       return Boolean(params.id)
     },
+    data () {
+      return {
+        canAddComment: true
+      }
+    },
     components: {
       AppComment, AppCommentForm
+    },
+    methods: {
+      createCommentHandler () {
+        this.canAddComment = false
+      }
     }
   }
 </script>

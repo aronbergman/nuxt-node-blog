@@ -21,3 +21,13 @@ html, body {
     font-weight: 700;
   }
 }
+
+.page-enter-active, .page-leave-active {
+  transform: translateY(0);
+  transition: all .3s ease;
+}
+
+.page-enter, .page-leave-active {
+  opacity: 0;
+  transform: translateY(-25gitpx);
+}
