@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: #000;
+}
+
+html .text-center, body .text-center {
+  text-align: center;
+  font-weight: 700;
+}
+
+.page-enter-active, .page-leave-active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.page-enter, .page-leave-active {
+  opacity: 0;
+  -webkit-transform: translateY(-25gitpx);
+          transform: translateY(-25gitpx);
+}
+/*# sourceMappingURL=general.css.map */

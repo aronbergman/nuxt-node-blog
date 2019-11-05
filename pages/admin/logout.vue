@@ -1,10 +1,16 @@
 <template>
-  <h1>!</h1>
+  <h1>Выход из системы</h1>
 </template>
 
 <script>
   export default {
-    layout: 'admin'
+    layout: 'admin',
+    middleware: ['admin-auth'],
+    beforeCreate () {
+      // У стора будем вызывать метод, который называется
+      this.$store.dispatch('auth/logout')
+      this.$router.push('/admin/login?message=logout')
+    }
   }
 </script>
 

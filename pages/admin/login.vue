@@ -55,6 +55,17 @@
         }
       }
     },
+    mounted () {
+      const { message } = this.$route.query
+      switch (message) {
+        case 'login':
+          this.$message.info('Для управления войдите в систему')
+          break
+        case 'logout':
+          this.$message.info('Вы успешно вышли из системы')
+          break
+      }
+    },
     methods: {
       onSubmit () {
         this.$refs.form.validate(async (valid) => {
@@ -69,7 +80,7 @@
               await this.$store.dispatch('auth/login', formData)
               this.$router.push('/admin')
 
-              this.$message.info(`Добро пожаловать, ${this.controls.login}`)
+              this.$message.success(`Добро пожаловать, ${this.controls.login}`)
             } catch (e) {
               this.loading = false
               console.log(e)
