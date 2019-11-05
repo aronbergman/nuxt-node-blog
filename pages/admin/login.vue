@@ -57,19 +57,21 @@
     },
     methods: {
       onSubmit () {
-        this.$refs.form.validate((valid) => {
+        this.$refs.form.validate(async (valid) => {
           if (valid) {
             this.loading = true
-            const formData = {
-              login: this.controls.login,
-              password: this.controls.password,
-              postId: ''
-            }
             try {
+              const formData = {
+                login: this.controls.login,
+                password: this.controls.password
+              }
+
+              await this.$store.dispatch('auth/login', formData)
+              this.$router.push('/admin')
+
               this.$message.info(`Добро пожаловать, ${this.controls.login}`)
-              this.$emit('created')
-              console.log(formData)
             } catch (e) {
+              this.loading = false
               console.log(e)
             }
           }
