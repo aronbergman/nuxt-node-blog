@@ -24,6 +24,13 @@ export const actions = {
       throw e
     }
   },
+  async createUser ({ commit }, formData) {
+    try {
+      await console.log('auth/createUser', formData)
+    } catch (e) {
+
+    }
+  },
   setToken ({ commit }, token) {
     commit('setToken', token)
   },
