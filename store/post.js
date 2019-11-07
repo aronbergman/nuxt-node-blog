@@ -11,12 +11,24 @@ export const actions = {
       }, 1000)
     })
   },
-  async remove({ }, id) {},
+  async remove({ }, id) { },
 
-  async fetchAdminById({}, id) {
+  async update({ }, { id, text }) {
+    console.log(id, text)
+  },
+
+  async fetchAdminById({ }, id) {
     return await new Promise((resolve) => {
       setTimeout(() => {
         resolve(posts.find(p => p._id === id))
+      }, 1000)
+    })
+  },
+
+  async create({ }, { title, text }) {
+    return await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(console.log(title, text))
       }, 1000)
     })
   }
