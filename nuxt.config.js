@@ -1,6 +1,10 @@
 
 module.exports = {
   mode: 'universal',
+  lintOnSave: false,
+  dev: {
+    useEslint: false
+  },
   /*
   ** Headers of the page
   */
@@ -18,7 +22,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#409eff' },
   /*
   ** Global CSS
   */
