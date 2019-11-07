@@ -16,7 +16,8 @@
     "cross-env": "^5.2.0",
     "element-ui": "^2.4.11",
     "express": "^4.16.4",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vue-markdown": "^2.2.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
