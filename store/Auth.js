@@ -3,39 +3,38 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setToken (state, token) {
+  setToken(state, token) {
     state.token = token
   },
-  clearToken (state) {
+  clearToken(state) {
     state.token = null
   }
 }
 
 export const actions = {
-  async login ({ commit, dispatch }, formData) {
+  async login({ commit, dispatch }, formData) {
     try {
       // eslint-disable-next-line promise/param-names
-      const token = await new Promise((resolve, reject) => {
-        setTimeout(() => resolve('mock-tocken'), 2000)
-      })
+      const { token } = this.$axios.post('/api/auth/admin/login', formData)
+      console.log(token)
       dispatch('setToken', token)
     } catch (e) {
       commit('setError', e, { root: true })
       throw e
     }
   },
-  async createUser ({ commit }, formData) {
+  async createUser({ commit }, formData) {
     try {
       await console.log('auth/createUser', formData)
     } catch (e) {
 
     }
   },
-  setToken ({ commit }, token) {
+  setToken({ commit }, token) {
     commit('setToken', token)
   },
   // commit позволяет изменять стор через мутейшены
-  logout ({ commit }) {
+  logout({ commit }) {
     commit('clearToken')
   }
 }
