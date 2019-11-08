@@ -7,7 +7,12 @@ const keys = require('./keys')
 const app = express()
 
 mongoose.connect(keys.MONGO_URI)
-    .then(() => { console.log('MD connected') })
+    .then(() => {
+        consola.ready({
+            message: 'MD connected',
+            badge: true
+        })
+    })
     .catch(error => console.log('MD error', error))
 
 app.use(bodyParser.urlencoded({ extended: true }))
