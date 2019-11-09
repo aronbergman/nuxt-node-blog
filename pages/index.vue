@@ -11,20 +11,19 @@
 </template>
 
 <script>
-  import AppPost from '@/components/main/Post'
-
-  export default {
-    head: {
-      title: 'Главная'
-    },
-    async asyncData ({ store }) {
-      const posts = await store.dispatch('post/fetch')
-      return { posts }
-    },
-    components: {
-      AppPost
-    }
+import AppPost from '@/components/main/Post'
+export default {
+  head: {
+    title: 'Главная'
+  },
+  async asyncData({store}) {
+    const posts = await store.dispatch('post/fetch')
+    return {posts}
+  },
+  components: {
+    AppPost
   }
+}
 </script>
 
 <style>

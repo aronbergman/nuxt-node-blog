@@ -1,9 +1,9 @@
 export const actions = {
-  async create ({ commit }, data) {
+  async create({commit}, data) {
     try {
-      return await this.$axios.$post('api/comment', data)
+      return await this.$axios.$post('/api/comment', data)
     } catch (e) {
-      commit('setError', e, { root: true })
+      commit('setError', e, {root: true})
     }
   }
 }

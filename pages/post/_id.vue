@@ -47,34 +47,33 @@
 </template>
 
 <script>
-  import AppComment from '@/components/main/Comment'
-  import AppCommentForm from '@/components/main/CommentForm'
+import AppComment from '@/components/main/Comment'
+import AppCommentForm from '@/components/main/CommentForm'
 
-  export default {
-    validate ({ params }) {
-      return Boolean(params.id)
-    },
-    async asyncData ({ store, params }) {
-      const post = await store.dispatch('post/fetchById', params.id)
-      await store.dispatch('post/addView', post)
-      return {
-        post: { ...post, views: ++post.views }
-      }
-    },
-    data () {
-      return {
-        canAddComment: true
-      }
-    },
-    methods: {
-      createCommentHandler (comment) {
-        this.post.comments.unshift(comment)
-        this.canAddComment = false
-
-      }
-    },
-    components: { AppComment, AppCommentForm }
-  }
+export default {
+  validate({params}) {
+    return Boolean(params.id)
+  },
+  async asyncData({store, params}) {
+    const post = await store.dispatch('post/fetchById', params.id)
+    await store.dispatch('post/addView', post)
+    return {
+      post: {...post, views: ++post.views}
+    }
+  },
+  data() {
+    return {
+      canAddComment: true
+    }
+  },
+  methods: {
+    createCommentHandler(comment) {
+      this.post.comments.unshift(comment)
+      this.canAddComment = false
+    }
+  },
+  components: {AppComment, AppCommentForm}
+}
 </script>
 
 <style lang="scss" scoped>

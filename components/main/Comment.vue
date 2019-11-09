@@ -14,14 +14,14 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      comment: {
-        type: Object,
-        required: true
-      }
+export default {
+  props: {
+    comment: {
+      type: Object,
+      required: true
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>
