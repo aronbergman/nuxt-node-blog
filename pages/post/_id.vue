@@ -2,7 +2,7 @@
   <article class="post">
     <header class="post-header">
       <div class="post-title">
-        <h1>Post title</h1>
+        <h1>{{post.title}}</h1>
         <nuxt-link to="/">
           <i class="el-icon-back"></i>
         </nuxt-link>
@@ -10,24 +10,22 @@
       <div class="post-info">
         <small>
           <i class="el-icon-time"></i>
-          {{ new Date().toLocaleString() }}
+          {{ new Date(post.date).toLocaleString() }}
         </small>
         <small>
           <i class="el-icon-view"></i>
-          42
+          {{post.views}}
         </small>
       </div>
       <div class="post-image">
         <img
-          src="https://cdn.tripzaza.com/ru/destinations/files/2017/09/Berlin-e1505798693967.jpg"
+          :src="post.imageUrl"
           alt="post image"
         >
       </div>
     </header>
     <main class="post-content">
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus quos doloremque ut in distinctio, quam delectus?</p>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus quos doloremque ut in distinctio, quam delectus?</p>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus quos doloremque ut in distinctio, quam delectus?</p>
+      <vue-markdown>{{post.text}}</vue-markdown>
     </main>
     <footer>
       <app-comment-form
@@ -35,9 +33,9 @@
         @created="createCommentHandler"
       />
 
-      <div class="comments" v-if="true">
+      <div class="comments" v-if="post.comments.length">
         <app-comment
-          v-for="comment in 4"
+          v-for="comment in post.comments"
           :key="comment"
           :comment="comment"
         />
@@ -48,25 +46,32 @@
 </template>
 
 <script>
-import AppComment from '@/components/main/Comment'
-import AppCommentForm from '@/components/main/CommentForm'
+  import AppComment from '@/components/main/Comment'
+  import AppCommentForm from '@/components/main/CommentForm'
 
-export default {
-  validate({params}) {
-    return Boolean(params.id)
-  },
-  data() {
-    return {
-      canAddComment: true
-    }
-  },
-  methods: {
-    createCommentHandler() {
-      this.canAddComment = false
-    }
-  },
-  components: {AppComment, AppCommentForm}
-}
+  export default {
+    validate ({ params }) {
+      return Boolean(params.id)
+    },
+    async asyncData ({ store, params }) {
+      const post = await store.dispatch('post/fetchById', params.id)
+      await store.dispatch('post/addView', post)
+      return {
+        post: { ...post, views: ++post.views }
+      }
+    },
+    data () {
+      return {
+        canAddComment: true
+      }
+    },
+    methods: {
+      createCommentHandler () {
+        this.canAddComment = false
+      }
+    },
+    components: { AppComment, AppCommentForm }
+  }
 </script>
 
 <style lang="scss" scoped>

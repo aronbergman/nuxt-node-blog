@@ -50,5 +50,29 @@ export const actions = {
       commit('setError', e, { root: true })
       throw e
     }
+  },
+  async fetchById ({ commit }, id) {
+    try {
+      return await this.$axios.$get(`/api/post/${id}`)
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
+  },
+  async fetch ({ commit }) {
+    try {
+      return await this.$axios.$get('/api/post')
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
+  },
+  async addView ({ commit }, {views, _id}) {
+    try {
+      return await this.$axios.$put(`/api/post/add/view/${_id}`, {views})
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
   }
 }

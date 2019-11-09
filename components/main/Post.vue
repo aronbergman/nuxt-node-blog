@@ -5,17 +5,17 @@
     class="post"
   >
     <header slot="header" class="post-header">
-      <h3>Post title</h3>
+      <h3>{{post.title}}</h3>
 
       <small>
         <i class="el-icon-time"></i>
-        {{ new Date().toLocaleString() }}
+        {{ new Date(post.date).toLocaleString() }}
       </small>
     </header>
     <div class="post-body">
-      <img 
-        src="https://cdn.tripzaza.com/ru/destinations/files/2017/09/Berlin-e1505798693967.jpg" 
-        alt="post image" 
+      <img
+        :src="post.imageUrl"
+        alt="post image"
         class="post-img"
       >
     </div>
@@ -24,22 +24,27 @@
 
       <span>
         <i class="el-icon-message"></i>
-
-        12
+        {{post.comments.length}}
       </span>
     </footer>
   </el-card>
 </template>
 
 <script>
-export default {
-  methods: {
-    openPost() {
-      const id = 'test-id'
-      this.$router.push(`/post/${id}`)
+  export default {
+    props: {
+      post: {
+        type: Object,
+        required: true
+      }
+    },
+    methods: {
+      openPost () {
+        const id = this.post._id
+        this.$router.push(`/post/${id}`)
+      }
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
