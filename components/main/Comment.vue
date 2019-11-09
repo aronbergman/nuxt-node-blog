@@ -1,37 +1,39 @@
 <template>
   <el-card class="comment">
-    <header class="comment-header">
-      <span>Имя</span>
+    <div class="comment-header">
+      <span>Person name</span>
       <span>
         <i class="el-icon-time"></i>
         {{ new Date().toLocaleString() }}
       </span>
-    </header>
+    </div>
     <div class="comment-text">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, quo?
+      Lorem ipsum dolor sit amet.
     </div>
   </el-card>
 </template>
 
 <script>
-  export default {
-    props: ['comment']
-  }
+export default {
+  props: ['comment']
+}
 </script>
 
 <style lang="scss" scoped>
   .comment {
     margin-bottom: 1rem;
+  }
 
-    &-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: .5rem;
-      font-size: .8rem;
-    }
+  .comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+  }
 
-    &-text {
-      white-space: pre-line;
-    }
+  .comment-text {
+    white-space: pre-line;
   }
 </style>
+
+

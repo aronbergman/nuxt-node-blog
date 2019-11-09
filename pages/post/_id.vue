@@ -5,7 +5,6 @@
         <h1>Post title</h1>
         <nuxt-link to="/">
           <i class="el-icon-back"></i>
-          На главную
         </nuxt-link>
       </div>
       <div class="post-info">
@@ -19,36 +18,23 @@
         </small>
       </div>
       <div class="post-image">
-        <img src="https://www.tripzaza.com/ru/destinations/files/2017/09/Berlin-e1505798693967.jpg" alt="">
+        <img
+          src="https://cdn.tripzaza.com/ru/destinations/files/2017/09/Berlin-e1505798693967.jpg"
+          alt="post image"
+        >
       </div>
     </header>
     <main class="post-content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum laborum nobis non quo sed. Aut commodi
-        consequatur cupiditate deleniti, dignissimos dolorum ea, est et eveniet excepturi harum illo in ipsa ipsam iusto
-        labore, magnam maxime minima modi molestias mollitia natus quasi repellat saepe sunt ullam vero voluptate! Alias
-        amet error ex facilis iste modi mollitia numquam obcaecati, quod reprehenderit, sint ut. Animi aperiam
-        consequatur delectus dolorem dolorum eos excepturi hic incidunt magni porro sequi veritatis, vitae? At
-        consequuntur officia quidem quo. Ducimus enim eveniet fugit itaque libero neque nisi quaerat quisquam! Accusamus
-        aspernatur beatae dignissimos nam odit perferendis porro quae.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum laborum nobis non quo sed. Aut commodi
-        consequatur cupiditate deleniti, dignissimos dolorum ea, est et eveniet excepturi harum illo in ipsa ipsam iusto
-        labore, magnam maxime minima modi molestias mollitia natus quasi repellat saepe sunt ullam vero voluptate! Alias
-        amet error ex facilis iste modi mollitia numquam obcaecati, quod reprehenderit, sint ut. Animi aperiam
-        consequatur delectus dolorem dolorum eos excepturi hic incidunt magni porro sequi veritatis, vitae? At
-        consequuntur officia quidem quo. Ducimus enim eveniet fugit itaque libero neque nisi quaerat quisquam! Accusamus
-        aspernatur beatae dignissimos nam odit perferendis porro quae.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum laborum nobis non quo sed. Aut commodi
-        consequatur cupiditate deleniti, dignissimos dolorum ea, est et eveniet excepturi harum illo in ipsa ipsam iusto
-        labore, magnam maxime minima modi molestias mollitia natus quasi repellat saepe sunt ullam vero voluptate! Alias
-        amet error ex facilis iste modi mollitia numquam obcaecati, quod reprehenderit, sint ut. Animi aperiam
-        consequatur delectus dolorem dolorum eos excepturi hic incidunt magni porro sequi veritatis, vitae? At
-        consequuntur officia quidem quo. Ducimus enim eveniet fugit itaque libero neque nisi quaerat quisquam! Accusamus
-        aspernatur beatae dignissimos nam odit perferendis porro quae.</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus quos doloremque ut in distinctio, quam delectus?</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus quos doloremque ut in distinctio, quam delectus?</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus quos doloremque ut in distinctio, quam delectus?</p>
     </main>
     <footer>
       <app-comment-form
+        v-if="canAddComment"
         @created="createCommentHandler"
-        v-if="canAddComment"/>
+      />
+
       <div class="comments" v-if="true">
         <app-comment
           v-for="comment in 4"
@@ -62,62 +48,58 @@
 </template>
 
 <script>
-  import AppComment from '@/components/main/Comment'
-  import AppCommentForm from '@/components/main/CommentForm'
+import AppComment from '@/components/main/Comment'
+import AppCommentForm from '@/components/main/CommentForm'
 
-  export default {
-    validate ({ params }) {
-      return Boolean(params.id)
-    },
-    data () {
-      return {
-        canAddComment: true
-      }
-    },
-    components: {
-      AppComment, AppCommentForm
-    },
-    methods: {
-      createCommentHandler () {
-        this.canAddComment = false
-      }
+export default {
+  validate({params}) {
+    return Boolean(params.id)
+  },
+  data() {
+    return {
+      canAddComment: true
     }
-  }
+  },
+  methods: {
+    createCommentHandler() {
+      this.canAddComment = false
+    }
+  },
+  components: {AppComment, AppCommentForm}
+}
 </script>
 
 <style lang="scss" scoped>
   .post {
     max-width: 600px;
     margin: 0 auto;
+  }
 
-    &-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
+  .post-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
 
-    &-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: .5rem;
-    }
+  .post-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+  }
 
-    &-image {
+  .post-image img {
+    width: 100%;
+    height: auto;
+  }
 
-      img {
-        width: 100%;
-        height: auto;
-      }
-    }
+  .post-header {
+    margin-bottom: 1.5rem;
+  }
 
-    &-header {
-      margin-bottom: 1.5rem;
-    }
-
-    &-content {
-      margin-bottom: 2rem;
-    }
+  .post-content {
+    margin-bottom: 2rem;
   }
 </style>
+

@@ -1,108 +1,97 @@
 <template>
   <el-card
-    class="form"
-    shadow="always">
+    shadow="always"
+    :style="{width: '500px'}"
+  >
     <el-form
       :model="controls"
       :rules="rules"
       ref="form"
-      label-width="120px"
-      @submit.prevent.native="onSubmit">
-
-      <h1>Авторизация</h1>
+      @submit.native.prevent="onSubmit"
+    >
+      <h2>Войти в панель администратора</h2>
 
       <el-form-item label="Логин" prop="login">
-        <el-input v-model.trim="controls.login"/>
+        <el-input v-model.trim="controls.login" />
       </el-form-item>
 
-      <el-form-item label="Пароль" prop="password">
-        <el-input v-model.trim="controls.password" type="password"/>
-      </el-form-item>
+      <div class="mb2">
+        <el-form-item label="Пароль" prop="password">
+          <el-input v-model.trim="controls.password" type="password" />
+        </el-form-item>
+      </div>
 
       <el-form-item>
         <el-button
           type="primary"
-          round
           native-type="submit"
+          round
           :loading="loading"
-          class="submit-button"
-        >Войти
+        >
+          Войти
         </el-button>
       </el-form-item>
-
     </el-form>
   </el-card>
 </template>
 
 <script>
-  export default {
-    layout: 'empty',
-    data () {
-      return {
-        loading: false,
-        controls: {
-          login: '',
-          password: ''
-        },
-        rules: {
-          login: [
-            { required: true, message: 'Введите логин', trigger: 'blur' }
-          ],
-          password: [
-            { required: true, message: 'Введите ваш пароль', trigger: 'blur' },
-            { min: 6, message: 'Пароль должен содержать не менее 6 символов', trigger: 'blur' }
-          ]
-        }
-      }
-    },
-    mounted () {
-      const { message } = this.$route.query
-      switch (message) {
-        case 'login':
-          this.$message.info('Для управления войдите в систему')
-          break
-        case 'logout':
-          this.$message.info('Вы успешно вышли из системы')
-          break
-      }
-    },
-    methods: {
-      onSubmit () {
-        this.$refs.form.validate(async (valid) => {
-          if (valid) {
-            this.loading = true
-            try {
-              const formData = {
-                login: this.controls.login,
-                password: this.controls.password
-              }
-
-              await this.$store.dispatch('auth/login', formData)
-              this.$router.push('/admin')
-
-              this.$message.success(`Добро пожаловать, ${this.controls.login}`)
-            } catch (e) {
-              this.loading = false
-              console.log(e)
-            }
-          }
-        })
+export default {
+  layout: 'empty',
+  data() {
+    return {
+      loading: false,
+      controls: {
+        login: '',
+        password: ''
+      },
+      rules: {
+        login: [
+          { required: true, message: 'Введите логин', trigger: 'blur' }
+        ],
+        password: [
+          { required: true, message: 'Введите пароль', trigger: 'blur' },
+          { min: 6, message: 'Пароль должен быть не менее 6 символов', trigger: 'blur' }
+        ]
       }
     }
+  },
+  mounted() {
+    const {message} = this.$route.query
+
+    switch (message) {
+      case 'login':
+        this.$message.info('Для начала войдите в систему')
+        break
+      case 'logout':
+        this.$message.success('Вы успешно вышли из системы')
+        break
+      case 'session':
+        this.$message.warning('Время сессии истекло, пожалуйста зайдите заного')
+        break
+    }
+  },
+  methods: {
+    onSubmit() {
+      this.$refs.form.validate(async valid => {
+        if (valid) {
+          this.loading = true
+
+          try {
+            const formData = {
+              login: this.controls.login,
+              password: this.controls.password
+            }
+
+            await this.$store.dispatch('auth/login', formData)
+            this.$router.push('/admin')
+
+          } catch (e) {
+            this.loading = false
+          }
+        }
+      })
+    }
   }
+}
 </script>
-
-<style lang="scss" scoped>
-  .form {
-    width: 500px;
-  }
-
-  h1 {
-    padding-bottom: 2rem;
-    text-align: center;
-  }
-
-  .submit-button {
-    margin-top: 1rem;
-  }
-</style>

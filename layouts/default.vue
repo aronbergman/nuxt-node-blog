@@ -11,15 +11,15 @@
 </template>
 
 <script>
+import AppNavigation from '@/components/main/Navigation'
 
-  import AppNavigation from '@/components/main/Navigation.vue'
-
-  export default {
-    components: {
-      AppNavigation
-    }
+export default {
+  components: {
+    AppNavigation
   }
+}
 </script>
+
 
 <style>
 
