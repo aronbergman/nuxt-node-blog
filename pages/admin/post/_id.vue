@@ -49,57 +49,60 @@
 </template>
 
 <script>
-export default {
-  layout: 'admin',
-  middleware: ['admin-auth'],
-  head() {
-    return {
-      title: `Пост | ${this.post.title}`
-    }
-  },
-  validate({params}) {
-    return Boolean(params.id)
-  },
-  async asyncData({store, params}) {
-    const post = await store.dispatch('post/fetchAdminById', params.id)
-    return {post}
-  },
-  data() {
-    return {
-      loading: false,
-      controls: {
-        text: ''
-      },
-      rules: {
-        text: [
-          { required: true, message: 'Текст не должен быть пустым', trigger: 'blur' }
-        ]
+  export default {
+    layout: 'admin',
+    middleware: ['admin-auth'],
+    head () {
+      return {
+        title: `Пост | ${this.post.title}`
+      }
+    },
+    validate ({ params }) {
+      return Boolean(params.id)
+    },
+    async asyncData ({ store, params }) {
+      const post = await store.dispatch('post/fetchAdminById', params.id)
+      return { post }
+    },
+    data () {
+      return {
+        loading: false,
+        controls: {
+          text: ''
+        },
+        rules: {
+          text: [
+            { required: true, message: 'Текст не должен быть пустым', trigger: 'blur' }
+          ]
+        }
+      }
+    },
+    mounted () {
+      this.controls.text = this.post.text
+    },
+    methods: {
+      onSubmit () {
+        this.$refs.form.validate(async valid => {
+          if (valid) {
+            this.loading = true
+
+            const formData = {
+              text: this.controls.text,
+              id: this.post._id
+            }
+
+            try {
+              await this.$store.dispatch('post/update', formData)
+              this.$message.success('Пост обновлен')
+              this.loading = false
+            } catch (e) {
+              this.loading = false
+            }
+          }
+        })
       }
     }
-  },
-  methods: {
-    onSubmit() {
-      this.$refs.form.validate(async valid => {
-        if (valid) {
-          this.loading = true
-
-          const formData = {
-            text: this.controls.text,
-            id: this.post._id
-          }
-
-          try {
-            await this.$store.dispatch('post/update', formData)
-            this.$message.success('Пост обновлен')
-            this.loading = false
-          } catch (e) {
-            this.loading = false
-          }
-        }
-      })
-    }
   }
-}
 </script>
 
 <style lang="scss" scoped>
