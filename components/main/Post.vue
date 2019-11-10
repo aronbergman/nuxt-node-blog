@@ -9,7 +9,7 @@
 
       <small>
         <i class="el-icon-time"></i>
-        {{ new Date(post.date).toLocaleString() }}
+        {{ post.date | date }}
       </small>
     </header>
     <div class="post-body">
@@ -32,20 +32,20 @@
 </template>
 
 <script>
-export default {
-  props: {
-    post: {
-      type: Object,
-      required: true
-    }
-  },
-  methods: {
-    openPost() {
-      const id = this.post._id
-      this.$router.push(`/post/${id}`)
+  export default {
+    props: {
+      post: {
+        type: Object,
+        required: true
+      }
+    },
+    methods: {
+      openPost () {
+        const id = this.post._id
+        this.$router.push(`/post/${id}`)
+      }
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
