@@ -9,16 +9,15 @@ const commentRoutes = require('./routes/comment.routes')
 const keys = require('./keys')
 const app = express()
 
-mongoose.connect(keys.MONGO_URI)
+mongoose.connect(keys.MONGO_URI, { useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected...'))
   .catch(error => console.error(error))
 
 app.use(passport.initialize())
 passport.use(passportStrategy)
 
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
 
 app.use('/api/auth', authRoutes)
 app.use('/api/post', postRoutes)
