@@ -1,6 +1,5 @@
 const pkg = require('./package')
 
-
 module.exports = {
   mode: 'universal',
 
@@ -29,16 +28,23 @@ module.exports = {
   ],
 
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ['nuxt-env', {
+      keys: [
+        { key: 'MONGO_URI', secret: true },
+        { key: 'JWT', secret: true },
+        { key: 'BASE_URL', secret: true }
+      ]
+    }]
   ],
 
   axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000'
+    baseURL: this.$env.BASE_URL || 'http://localhost:3000'
   },
 
   build: {
     transpile: [/^element-ui/],
-    extend(config, ctx) {
+    extend (config, ctx) {
 
     }
   }
