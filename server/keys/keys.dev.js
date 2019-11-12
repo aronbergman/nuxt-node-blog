@@ -1,4 +1,4 @@
 module.exports = {
-    MONGO_URI: `mongodb+srv://aronbergman:Salut3462@127.0.0.1:27017/nuxt-node-blog?retryWrites=true&w=majority`,
+    MONGO_URI: `mongodb://aronbergman:Salut3462@194.67.90.19:27017/nuxt-node-blog`,
     JWT: 'dev-jwt-key'
 }
