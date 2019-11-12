@@ -17,6 +17,7 @@
     "chart.js": "^2.7.3",
     "cookie": "^0.3.1",
     "cross-env": "^5.2.0",
+    "dotenv": "^8.2.0",
     "element-ui": "^2.4.11",
     "express": "^4.16.4",
     "js-cookie": "^2.2.0",

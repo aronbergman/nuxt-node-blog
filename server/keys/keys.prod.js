@@ -1,4 +1,7 @@
+const dotenv = require('dotenv')
+dotenv.config()
+
 module.exports = {
-  MONGO_URI: this.$env.MONGO_URI,
-  JWT: this.$env.JWT
+  MONGO_URI: process.env.MONGO_URI,
+  JWT: process.env.JWT
 }

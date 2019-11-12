@@ -1,4 +1,6 @@
 const pkg = require('./package')
+const dotenv = require('dotenv')
+dotenv.config()
 
 module.exports = {
   mode: 'universal',
@@ -28,18 +30,11 @@ module.exports = {
   ],
 
   modules: [
-    '@nuxtjs/axios',
-    ['nuxt-env', {
-      keys: [
-        { key: 'MONGO_URI', secret: true },
-        { key: 'JWT', secret: true },
-        { key: 'BASE_URL', secret: true }
-      ]
-    }]
+    '@nuxtjs/axios'
   ],
 
   axios: {
-    baseURL: this.$env.BASE_URL || 'http://localhost:3000'
+    baseURL: process.env.BASE_URL || 'http://localhost:3000'
   },
 
   build: {
