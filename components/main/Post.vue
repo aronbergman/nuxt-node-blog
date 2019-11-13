@@ -18,6 +18,7 @@
         alt="post image"
         class="post-img"
       >
+      {{post.description}}
     </div>
     <footer class="post-footer">
       <el-button round @click="openPost">Открыть</el-button>
