@@ -5,6 +5,10 @@ const postSchema = new Schema({
     type: String,
     required: true
   },
+   description: {
+    type: String,
+    required: true
+  },
   text: {
     type: String,
     required: true

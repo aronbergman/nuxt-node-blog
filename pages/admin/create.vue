@@ -14,6 +14,15 @@
       />
     </el-form-item>
 
+    <el-form-item label="Описание статьи на главной странице" prop="description">
+      <el-input
+        type="textarea"
+        v-model="controls.description"
+        resize="none"
+        :rows="3"
+      />
+    </el-form-item>
+
     <el-form-item label="Текст в формате .md или .html" prop="text">
       <el-input
         type="textarea"
@@ -70,10 +79,14 @@ export default {
       loading: false,
       controls: {
         title: '',
+        description: '',
         text: ''
       },
       rules: {
         text: [
+          { required: true, message: 'Текст не должен быть пустым', trigger: 'blur' }
+        ],
+        description: [
           { required: true, message: 'Текст не должен быть пустым', trigger: 'blur' }
         ],
         title: [
@@ -93,6 +106,7 @@ export default {
 
           const formData = {
             title: this.controls.title,
+            description: this.controls.description,
             text: this.controls.text,
             image: this.image
           }
@@ -101,6 +115,7 @@ export default {
             await this.$store.dispatch('post/create', formData)
             this.controls.text = ''
             this.controls.title = ''
+            this.controls.description = ''
             this.image = null
             this.$refs.upload.clearFiles()
             this.$message.success('Пост создан')

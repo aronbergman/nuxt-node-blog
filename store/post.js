@@ -7,6 +7,14 @@ export const actions = {
       throw e
     }
   },
+   async fetchAdminUsers({commit}) {
+    try {
+      return await this.$axios.$get('/api/post/admin/users')
+    } catch (e) {
+      commit('setError', e, {root: true})
+      throw e
+    }
+  },
   async fetch({commit}) {
     try {
       return await this.$axios.$get('/api/post')
@@ -31,12 +39,13 @@ export const actions = {
       throw e
     }
   },
-  async create({commit}, {title, text, image}) {
+  async create({commit}, {title, text, image, description}) {
     try {
       const fd = new FormData()
 
       fd.append('title', title)
       fd.append('text', text)
+      fd.append('description', description)
       fd.append('image', image, image.name)
 
       return await this.$axios.$post('/api/post/admin', fd)

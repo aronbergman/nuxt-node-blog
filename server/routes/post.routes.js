@@ -20,6 +20,12 @@ router.get(
 )
 
 router.get(
+  '/admin/users',
+  passport.authenticate('jwt', {session: false}),
+  ctr.getAllUsers
+)
+
+router.get(
   '/admin/:id',
   passport.authenticate('jwt', {session: false}),
   ctr.getById
@@ -46,6 +52,7 @@ router.get(
 // Base
 // /api/post
 router.get('/', ctr.getAll)
+// router.get('/users', ctr.getAllUsers)
 router.get('/:id', ctr.getById)
 
 router.put('/add/view/:id', ctr.addView)

@@ -1,9 +1,11 @@
 const Post = require('../models/post.model')
+const User = require('../models/user.model')
 
 module.exports.create = async (req, res) => {
   const post = new Post({
     title: req.body.title,
     text: req.body.text,
+    description: req.body.description,
     imageUrl: `/${req.file.filename}`
   })
 
@@ -18,6 +20,15 @@ module.exports.create = async (req, res) => {
 module.exports.getAll = async (req, res) => {
   try {
     const posts = await Post.find().sort({date: -1})
+    res.json(posts)
+  } catch (e) {
+    res.status(500).json(e)
+  }
+}
+
+module.exports.getAllUsers = async (req, res) => {
+  try {
+    const posts = await User.find().sort({ligin: -1})
     res.json(posts)
   } catch (e) {
     res.status(500).json(e)
