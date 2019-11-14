@@ -26,7 +26,7 @@
       <span>
         <i class="el-icon-message"></i>
 
-        {{post.comments.length}}
+        {{post.commentsCount}}
       </span>
     </footer>
   </el-card>

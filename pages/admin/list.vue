@@ -72,7 +72,6 @@ export default {
 
         this.$message.success('Пост удален')
       } catch (e) {}
-
     }
   }
 }

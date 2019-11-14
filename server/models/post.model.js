@@ -1,11 +1,11 @@
-const {Schema, model} = require('mongoose')
+const { Schema, model } = require('mongoose')
 
 const postSchema = new Schema({
   title: {
     type: String,
     required: true
   },
-   description: {
+  description: {
     type: String,
     required: true
   },
@@ -22,6 +22,10 @@ const postSchema = new Schema({
     default: 0
   },
   imageUrl: String,
+  commentsCount: {
+    type: Number,
+    default: 0
+  },
   comments: [
     {
       type: Schema.Types.ObjectId,

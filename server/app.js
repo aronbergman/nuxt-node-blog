@@ -8,9 +8,17 @@ const postRoutes = require('./routes/post.routes')
 const commentRoutes = require('./routes/comment.routes')
 const keys = require('./keys')
 const app = express()
+const dotenv = require('dotenv')
+dotenv.config()
 
-mongoose.connect(keys.MONGO_URI, { useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected...'))
+mongoose.connect(keys.MONGO_URI, {
+  useCreateIndex: true,
+  useUnifiedTopology: true
+})
+  .then(() => consola.info({
+    message: `Connected ${process.env.MONGO_URI}`,
+    badge: true
+  }))
   .catch(error => console.error(error))
 
 app.use(passport.initialize())
