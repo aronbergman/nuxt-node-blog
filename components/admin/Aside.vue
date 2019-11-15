@@ -10,7 +10,11 @@
     </el-menu-item>
     <el-menu-item index="/admin">
       <i class="el-icon-star-off"></i>
-      <span>Статистика</span>  <hr>
+      <span>Статистика</span>
+    </el-menu-item>
+    <el-menu-item index="/admin/about">
+      <i class="el-icon-location"></i>
+      <span>Визитка</span>  <hr class="hr">
     </el-menu-item>
     <el-menu-item index="/admin/create">
       <i class="el-icon-circle-plus-outline"></i>
@@ -34,3 +38,8 @@
     </el-menu-item>
   </el-menu>
 </template>
+<style lang="scss" scoped>
+  .hr {
+    opacity: .3;
+  }
+</style>
