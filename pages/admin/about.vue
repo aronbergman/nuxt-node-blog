@@ -71,16 +71,22 @@
   export default {
     layout: 'admin',
     middleware: ['admin-auth'],
+    async asyncData ({ store }) {
+      const about = await store.dispatch('about/fetch')
+      const lastCount = await about[about.length - 1]
+      return {
+        controls: {
+          name: lastCount.name,
+          contacts: lastCount.contacts,
+          text: lastCount.text
+        },
+      }
+    },
     data () {
       return {
         image: null,
         previewDialog: false,
         loading: false,
-        controls: {
-          name: '',
-          contacts: '',
-          text: ''
-        },
         rules: {
           text: [
             { required: true, message: 'Напиши подробнее о себе', trigger: 'blur' }
