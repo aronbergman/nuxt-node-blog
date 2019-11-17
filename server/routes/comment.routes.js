@@ -18,4 +18,10 @@ router.delete(
   ctr.removeComment
 )
 
+router.delete(
+  '/admin/comments/commentCount/:id',
+  passport.authenticate('jwt', { session: false }),
+  ctr.commentCount
+)
+
 module.exports = router

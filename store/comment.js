@@ -22,4 +22,12 @@ export const actions = {
       throw e
     }
   },
+   async commentCount ({ commit }, id) {
+    try {
+      return await this.$axios.$delete(`/api/comment/admin/comments/commentCount/${id}`)
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
+  },
 }

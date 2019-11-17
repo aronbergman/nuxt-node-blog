@@ -33,17 +33,22 @@ module.exports.getAllComments = async (req, res) => {
 }
 
 module.exports.removeComment = async (req, res) => {
-
-  const post = await Post.findById(postId)
-  const $set = {
-    commentsCount: ++post.commentsCount
-  }
-  co
-
   try {
     await Comment.deleteOne({ _id: req.params.id })
-    await Post.findOneAndUpdate({ _id: req.params.id }, { $set })
     res.json({ message: 'Комментарий удален' })
+  } catch (e) {
+    res.status(500).json(e)
+  }
+}
+
+module.exports.commentCount = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id)
+    const $set = {
+      commentsCount: --post.commentsCount
+    }
+    await Post.findOneAndUpdate({ _id: req.params.id }, { $set })
+    res.json({ message: 'Колличество просмотров уменьшено на 1' })
   } catch (e) {
     res.status(500).json(e)
   }
