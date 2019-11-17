@@ -15,13 +15,16 @@
       </defs>
     </svg>
     <header>
-      <div class="menu-row"></div>
+      <!--      <div></div>-->
       <h1>Время любить...</h1>
     </header>
+    <input type="checkbox" id="menu-toggle"/>
+    <label for="menu-toggle">
+      <i id="open" class="material-icons">menu</i>
+      <i id="close" class="material-icons">arrow_back</i>
+    </label>
     <app-navigation/>
-    <section>
       <nuxt/>
-    </section>
   </main>
 </template>
 
@@ -39,14 +42,6 @@
   main {
     background-color: #F5DFC7;
     padding-bottom: 150px;
-  }
-
-  .menu-row {
-    position: absolute;
-    bottom: 0;
-    height: 50px;
-    width: 100%;
-    background-color: #E91E63;
   }
 
   /*@font-face {
@@ -125,7 +120,7 @@
 
   section {
     position: relative;
-    top: 237px;
+    top: 150px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -139,5 +134,78 @@
     color: #757575;
     padding: 60px;
     text-align: justify;
+  }
+
+  label, label:before, label:after {
+    position: absolute;
+    top: 215px;
+    left: 8%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 0px 8px 0px,
+    rgba(0, 0, 0, 0.239216) 0px 8px 8px 0px;
+    transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 2;
+  }
+
+  label #open {
+    position: absolute;
+    top: -31px;
+    left: 16px;
+    color: #F5DFC7;
+    font-size: 48px !important;
+    cursor: pointer;
+  }
+
+  label #close {
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  #menu-toggle:not(:checked) + label:hover {
+    box-shadow: rgba(0, 0, 0, 0.0784314) 0px 0px 12px 0px,
+    rgba(0, 0, 0, 0.239216) 0px 12px 12px 0px;
+  }
+
+  #menu-toggle:checked + label {
+    position: absolute;
+    top: 20%;
+    left: 22%;
+    width: 300px;
+    height: 310px;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 0px 8px 0px,
+    rgba(0, 0, 0, 0.239216) 0px 8px 8px 0px;
+    transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 1;
+  }
+
+  #menu-toggle:checked + label #open {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #menu-toggle:checked + label #close {
+    position: absolute;
+    top: -40px;
+    right: 10px;
+    color: #E91E63;
+    font-size: 48px !important;
+    opacity: 1;
+  }
+
+  #menu-toggle:checked + label + #menu {
+    position: absolute;
+    margin: 0;
+    top: 28%;
+    left: 22%;
+    width: 300px;
+    height: 250px;
+    border-radius: 3px;
+    transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 2;
   }
 </style>

@@ -69,66 +69,67 @@
 </template>
 
 <script>
-export default {
-  layout: 'admin',
-  middleware: ['admin-auth'],
-  data() {
-    return {
-      image: null,
-      previewDialog: false,
-      loading: false,
-      controls: {
-        title: '',
-        description: '',
-        text: ''
+  export default {
+    layout: 'admin',
+    middleware: ['admin-auth'],
+    data () {
+      return {
+        image: null,
+        previewDialog: false,
+        loading: false,
+        controls: {
+          title: '',
+          description: '',
+          text: ''
+        },
+        rules: {
+          text: [
+            { required: true, message: 'Текст не должен быть пустым', trigger: 'blur' }
+          ],
+          description: [
+            { required: true, message: 'Текст не должен быть пустым', trigger: 'blur' }
+          ],
+          title: [
+            { required: true, message: 'Название поста не может быть пустым', trigger: 'blur' }
+          ]
+        }
+      }
+    },
+    methods: {
+      handleImageChange (file, fileList) {
+        this.image = file.raw
       },
-      rules: {
-        text: [
-          { required: true, message: 'Текст не должен быть пустым', trigger: 'blur' }
-        ],
-        description: [
-          { required: true, message: 'Текст не должен быть пустым', trigger: 'blur' }
-        ],
-        title: [
-          { required: true, message: 'Название поста не может быть пустым', trigger: 'blur' }
-        ]
+      onSubmit () {
+        this.$refs.form.validate(async valid => {
+          if (valid && this.image) {
+            this.loading = true
+
+            const formData = {
+              title: this.controls.title,
+              description: this.controls.description,
+              text: this.controls.text,
+              image: this.image
+            }
+
+            try {
+              await this.$store.dispatch('post/create', formData)
+              this.controls.text = ''
+              this.controls.title = ''
+              this.controls.description = ''
+              this.image = null
+              this.$refs.upload.clearFiles()
+              this.$message.success('Пост создан')
+            } catch (e) {
+            } finally {
+              this.loading = false
+            }
+          } else {
+            this.$message.warning('Форма не валидна')
+          }
+        })
       }
     }
-  },
-  methods: {
-    handleImageChange(file, fileList) {
-      this.image = file.raw
-    },
-    onSubmit() {
-      this.$refs.form.validate(async valid => {
-        if (valid && this.image) {
-          this.loading = true
-
-          const formData = {
-            title: this.controls.title,
-            description: this.controls.description,
-            text: this.controls.text,
-            image: this.image
-          }
-
-          try {
-            await this.$store.dispatch('post/create', formData)
-            this.controls.text = ''
-            this.controls.title = ''
-            this.controls.description = ''
-            this.image = null
-            this.$refs.upload.clearFiles()
-            this.$message.success('Пост создан')
-          } catch (e) {} finally {
-            this.loading = false
-          }
-        } else {
-          this.$message.warning('Форма не валидна')
-        }
-      })
-    }
   }
-}
 </script>
 
 <style lang="scss" scoped>

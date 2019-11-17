@@ -31,7 +31,8 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "vue-chartjs": "^3.4.0",
-    "vue-markdown": "^2.2.4"
+    "vue-markdown": "^2.2.4",
+    "vue-moment": "^4.0.0"
   },
   "devDependencies": {
     "node-sass": "^4.11.0",

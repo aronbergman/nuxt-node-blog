@@ -1,9 +1,7 @@
 <template>
-  <el-row type="flex" justify="center">
-    <el-col :xs="24" :sm="18" :md="12" :lg="10">
-      {{getContent()}}
-    </el-col>
-  </el-row>
+  <div>
+    {{getContent()}}
+  </div>
 </template>
 
 <script>
@@ -21,7 +19,7 @@
       }
     },
     methods: {
-      getContent() {
+      getContent () {
         const lastCount = this.about.length - 1
         return this.about[lastCount]
       }
