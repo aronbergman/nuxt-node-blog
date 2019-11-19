@@ -46,7 +46,7 @@
 
     .aside-bar {
       width: 300px;
-      margin-right: 50px;
+      margin: 0 40px;
     }
   }
 

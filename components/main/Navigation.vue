@@ -1,10 +1,10 @@
 <template>
   <nav class="nav">
-    <nuxt-link to="/" class="nav-item is-active" active-color="orange">Публикации</nuxt-link>
+    <nuxt-link to="/" class="nav-item is-active" active-color="rebeccapurple">Публикации</nuxt-link>
     <nuxt-link to="/questions" class="nav-item" active-color="red">Вопрос-ответ</nuxt-link>
-    <nuxt-link to="/about" class="nav-item" active-color="green">Тесты</nuxt-link>
-    <nuxt-link to="/about" class="nav-item" active-color="blue">Обо мне</nuxt-link>
-    <nuxt-link to="/contacts" class="nav-item" active-color="rebeccapurple">Контакты</nuxt-link>
+    <nuxt-link to="/tests" class="nav-item" active-color="green">Тесты</nuxt-link>
+    <nuxt-link to="/about" class="nav-item" active-color="orange">Обо мне</nuxt-link>
+    <nuxt-link to="/contact" class="nav-item" active-color="#00b8ca">Контакты</nuxt-link>
     <span class="nav-indicator"></span>
   </nav>
 </template>
@@ -42,6 +42,7 @@
     position: relative;
     overflow: hidden;
     max-width: 100%;
+    height: 61px;
     background-color: #fff;
     padding: 0 20px;
     border-radius: 40px;
@@ -59,6 +60,7 @@
     margin: 0 6px;
     z-index: 1;
     font-family: 'DM Sans', sans-serif;
+    line-height: 1.2;
     font-weight: 500;
     position: relative;
 
