@@ -18,7 +18,11 @@
 </script>
 
 <style scoped>
-.main-section {
-  margin-top: 100px;
-}
+  main {
+    background-color: #f5f5f5;
+  }
+
+  .main-section {
+    margin-top: 100px;
+  }
 </style>
