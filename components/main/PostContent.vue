@@ -172,6 +172,7 @@
       line-height: 1.4;
       margin-bottom: 1em;
       margin-top: 0.250em;
+      text-align: justify;
       color: #363636;
     }
 

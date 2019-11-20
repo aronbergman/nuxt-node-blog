@@ -27,11 +27,12 @@
     },
     async asyncData ({ store, params }) {
       const post = await store.dispatch('post/fetchById', params.id)
-      const posts = await store.dispatch('post/fetch')
+      let posts = await store.dispatch('post/fetch')
       await store.dispatch('post/addView', post)
+      posts = posts.filter(x => x._id !== post._id)
       return {
         post: { ...post, views: ++post.views },
-        posts: posts
+        posts: posts.slice(0, 2)
       }
     },
     components: { PopularBar, PostContent }

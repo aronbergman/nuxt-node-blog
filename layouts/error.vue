@@ -2,7 +2,7 @@
   <div class="error-container">
     <div class="error">
       <h1>404</h1>
-      <h2>ошибка</h2>
+<!--      <h2>ошибка</h2>-->
       <p>Страница была перемещена <br>или находится в разработке</p>
     </div>
     <div class="stack-container">
