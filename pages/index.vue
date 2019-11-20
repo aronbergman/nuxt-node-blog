@@ -45,4 +45,8 @@
   .el-row {
     flex-wrap: wrap;
   }
+
+  .post-card-row {
+    height: 100%;
+  }
 </style>

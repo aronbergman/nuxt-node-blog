@@ -1,14 +1,14 @@
 <template>
-  <div class="container">
+  <div class="error-container">
     <div class="error">
-      <h1>#404</h1>
+      <h1>404</h1>
       <h2>ошибка</h2>
-      <p>Страница изменила свое метоположение, или просто потерялась среди остальных.</p>
+      <p>Страница была перемещена <br>или находится в разработке</p>
     </div>
     <div class="stack-container">
       <div class="card-container">
         <div class="perspec" style="--spreaddist: 125px; --scaledist: .75; --vertdist: -25px;">
-          <div class="card">
+          <div class="error-card">
             <div class="writing">
               <div class="topbar">
                 <div class="red"></div>
@@ -25,7 +25,7 @@
       </div>
       <div class="card-container">
         <div class="perspec" style="--spreaddist: 100px; --scaledist: .8; --vertdist: -20px;">
-          <div class="card">
+          <div class="error-card">
             <div class="writing">
               <div class="topbar">
                 <div class="red"></div>
@@ -42,7 +42,7 @@
       </div>
       <div class="card-container">
         <div class="perspec" style="--spreaddist:75px; --scaledist: .85; --vertdist: -15px;">
-          <div class="card">
+          <div class="error-card">
             <div class="writing">
               <div class="topbar">
                 <div class="red"></div>
@@ -59,7 +59,7 @@
       </div>
       <div class="card-container">
         <div class="perspec" style="--spreaddist: 50px; --scaledist: .9; --vertdist: -10px;">
-          <div class="card">
+          <div class="error-card">
             <div class="writing">
               <div class="topbar">
                 <div class="red"></div>
@@ -76,7 +76,7 @@
       </div>
       <div class="card-container">
         <div class="perspec" style="--spreaddist: 25px; --scaledist: .95; --vertdist: -5px;">
-          <div class="card">
+          <div class="error-card">
             <div class="writing">
               <div class="topbar">
                 <div class="red"></div>
@@ -93,7 +93,7 @@
       </div>
       <div class="card-container">
         <div class="perspec" style="--spreaddist: 0px; --scaledist: 1; --vertdist: 0px;">
-          <div class="card">
+          <div class="error-card">
             <div class="writing">
               <div class="topbar">
                 <div class="red"></div>
@@ -122,7 +122,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .writing {
     width: 320px;
     height: 200px;
@@ -179,7 +179,7 @@
     margin: 10px 0;
   }
 
-  .container {
+  .error-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -254,7 +254,7 @@
     animation: explode .5s ease-in-out forwards;
   }
 
-  .card {
+  .error-card {
     -webkit-animation: tiltcard .5s ease-in-out 1s forwards;
     animation: tiltcard .5s ease-in-out 1s forwards;
     position: absolute;

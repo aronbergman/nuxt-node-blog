@@ -38,7 +38,7 @@
 
     <el-dialog title="Предпросмотр" :visible.sync="previewDialog">
       <div :key="controls.text">
-        <vue-markdown>{{controls.text}}</vue-markdown>
+        <VueShowdown :markdown="controls.text"/>
       </div>
     </el-dialog>
 

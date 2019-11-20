@@ -3,7 +3,7 @@ export const errorPage = () => {
   const cardNodes = document.querySelectorAll('.card-container')
   const perspecNodes = document.querySelectorAll('.perspec')
   const perspec = document.querySelector('.perspec')
-  const card = document.querySelector('.card')
+  const card = document.querySelector('.error-card')
 
   let counter = stackContainer.children.length
 
