@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <nuxt-link to="/" class="nav-item is-active" active-color="rebeccapurple">Публикации</nuxt-link>
+    <nuxt-link to="/" class="nav-item" active-color="rebeccapurple" exact>Публикации</nuxt-link>
     <nuxt-link to="/questions" class="nav-item" active-color="red">Вопрос-ответ</nuxt-link>
     <nuxt-link to="/tests" class="nav-item" active-color="green">Тесты</nuxt-link>
     <nuxt-link to="/about" class="nav-item" active-color="orange">Обо мне</nuxt-link>

@@ -4,7 +4,7 @@ export const menuAnimation = () => {
 
   function handleIndicator (el) {
     items.forEach(item => {
-      item.classList.remove('is-active')
+      item.classList.remove('nuxt-link-active')
       item.removeAttribute('style')
     })
 
@@ -12,7 +12,7 @@ export const menuAnimation = () => {
     indicator.style.left = `${el.offsetLeft}px`
     indicator.style.backgroundColor = el.getAttribute('active-color')
 
-    el.classList.add('is-active')
+    el.classList.add('nuxt-link-active')
     el.style.color = el.getAttribute('active-color')
   }
 
@@ -20,6 +20,6 @@ export const menuAnimation = () => {
     item.addEventListener('click', (e) => {
       handleIndicator(e.target)
     })
-    item.classList.contains('is-active') && handleIndicator(item)
+    item.classList.contains('nuxt-link-active') && handleIndicator(item)
   })
 }
