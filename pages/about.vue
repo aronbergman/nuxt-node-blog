@@ -49,6 +49,7 @@
       flex-direction: column;
       width: 100%;
       margin: 100px auto;
+      font-family: 'DM Sans', sans-serif;
     }
 
     &__item {

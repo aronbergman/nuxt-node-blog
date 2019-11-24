@@ -14,7 +14,8 @@
     </el-menu-item>
     <el-menu-item index="/admin/about">
       <i class="el-icon-location"></i>
-      <span>Страница «Обо мне»</span>  <hr class="hr">
+      <span>Страница «Обо мне»</span>
+      <hr class="hr">
     </el-menu-item>
     <el-menu-item index="/admin/create">
       <i class="el-icon-circle-plus-outline"></i>
@@ -23,6 +24,20 @@
     <el-menu-item index="/admin/list">
       <i class="el-icon-tickets"></i>
       <span>Все мои публикации</span>
+      <hr class="hr">
+    </el-menu-item>
+    <el-menu-item index="/admin/createQuestion">
+      <i class="el-icon-circle-plus-outline"></i>
+      <span>Добавить вопрос</span>
+    </el-menu-item>
+    <el-menu-item index="/admin/listQuestions">
+      <i class="el-icon-tickets"></i>
+      <span>Все мои ответы</span>
+      <hr class="hr">
+    </el-menu-item>
+    <el-menu-item index="/admin/contacts">
+      <i class="el-icon-s-comment"></i>
+      <span>Обратная связь</span>
     </el-menu-item>
     <el-menu-item index="/admin/comments">
       <i class="el-icon-s-comment"></i>
@@ -30,7 +45,7 @@
     </el-menu-item>
     <el-menu-item index="/admin/user">
       <i class="el-icon-user"></i>
-      <span>Пригласить автора</span>
+      <span>Пользователи</span>
     </el-menu-item>
     <el-menu-item index="/admin/logout">
       <i class="el-icon-close"></i>

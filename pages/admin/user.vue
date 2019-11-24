@@ -28,14 +28,14 @@
           Создать
         </el-button>
       </el-form-item>
-      <h3>Существующие пользователи</h3>
+      <h3>Существующие пользователи</h3><br>
       <el-table
         :data="users"
         style="width: 100%"
       >
         <el-table-column
           prop="login"
-          label=""
+          label="Электронная почта"
         />
       </el-table>
     </el-form>

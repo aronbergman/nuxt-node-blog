@@ -9,13 +9,18 @@ export const actions = {
       fd.append('phone', phone)
       fd.append('message', message)
 
-      const name2 = fd.getAll('name')
-      console.log(name2)
-
       return await this.$axios.$post('/api/contact', fd)
     } catch (e) {
       commit('setError', e, { root: true })
       throw e
     }
-  }
+  },
+  async fetchAdmin ({ commit }) {
+    try {
+      return await this.$axios.$get('/api/contact/admin')
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
+  },
 }

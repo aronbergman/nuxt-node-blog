@@ -47,7 +47,11 @@
       await comments.map(comment => {
         let postId = comment.postId
         let commentAndTitle = posts.find(post => post._id === postId)
-        comment['titlePost'] = commentAndTitle.title
+        if (commentAndTitle) {
+          comment['titlePost'] = commentAndTitle.title
+        } else {
+           comment['titlePost'] = 'Не найдена'
+        }
       })
 
       return { comments }

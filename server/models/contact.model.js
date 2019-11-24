@@ -16,6 +16,10 @@ const contactSchema = new Schema({
   message: {
     type: String
   },
+  date: {
+    type: Date,
+    default: Date.now
+  },
 })
 
 module.exports = model('contact', contactSchema)

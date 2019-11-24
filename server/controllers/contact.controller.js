@@ -16,3 +16,12 @@ module.exports.create = async (req, res) => {
     res.status(500).json(e)
   }
 }
+
+module.exports.getAll = async (req, res) => {
+  try {
+    const question = await FormContact.find().sort({ date: -1 })
+    res.json(question)
+  } catch (e) {
+    res.status(500).json(e)
+  }
+}

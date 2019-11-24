@@ -1,7 +1,7 @@
 <template>
   <div class="blog-slider">
     <div class="blog-slider__wrp swiper-wrapper">
-      <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__item swiper-slide" v-for="question in questions">
         <div class="blog-slider__img">
 
           <img
@@ -9,49 +9,12 @@
             alt="">
         </div>
         <div class="blog-slider__content">
-          <span class="blog-slider__code">Юлия, 29</span>
-          <div class="blog-slider__title">Как вы считаете,<br>справедливость существует?</div>
-          <div class="blog-slider__text">Я думаю каждый из нас может быть в той или иной степени справедлив друг к
-            другую Мы может многое сделать для того, чтоб стать объективнее к окружающим и перестать видеть во всем
-            вину только окружающего нас. А начать видеть недостатки в себе и понимать, как их можно превратить в
-            достоинтсва.
+          <span class="blog-slider__code">{{question.name}}</span>
+          <div class="blog-slider__title">{{question.question}}</div>
+          <div class="blog-slider__text">{{question.answer}}
           </div>
-          <!--          <a href="#" class="blog-slider__button">READ MORE</a>-->
         </div>
       </div>
-      <div class="blog-slider__item swiper-slide">
-        <div class="blog-slider__img">
-          <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1535759871/jason-leung-798979-unsplash.jpg"
-               alt="">
-        </div>
-        <div class="blog-slider__content">
-          <span class="blog-slider__code">26 December 2019</span>
-          <div class="blog-slider__title">Lorem Ipsum Dolor2</div>
-          <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
-            voluptate
-            repellendus magni illo ea animi?
-          </div>
-          <a href="#" class="blog-slider__button">READ MORE</a>
-        </div>
-      </div>
-
-      <div class="blog-slider__item swiper-slide">
-        <div class="blog-slider__img">
-          <img
-            src="https://res.cloudinary.com/muhammederdem/image/upload/v1535759871/alessandro-capuzzi-799180-unsplash.jpg"
-            alt="">
-        </div>
-        <div class="blog-slider__content">
-          <span class="blog-slider__code">26 December 2019</span>
-          <div class="blog-slider__title">Lorem Ipsum Dolor</div>
-          <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
-            voluptate
-            repellendus magni illo ea animi?
-          </div>
-          <a href="#" class="blog-slider__button">READ MORE</a>
-        </div>
-      </div>
-
     </div>
     <div class="blog-slider__pagination"></div>
     <nuxt-link class="blog-slider__button" to="/contact">Задать вопрос</nuxt-link>
@@ -64,7 +27,11 @@
   export default {
     mounted () {
       questionsPage()
-    }
+    },
+    async asyncData ({ store }) {
+      const questions = await store.dispatch('question/fetch')
+      return { questions }
+    },
   }
 </script>
 
