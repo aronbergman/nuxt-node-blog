@@ -63,7 +63,7 @@
 
   .aside-bar {
     position: relative;
-    top: 237px;
+    top: 110px;
     bottom: 0;
     left: 0;
     right: 0;

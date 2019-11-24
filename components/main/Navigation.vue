@@ -1,9 +1,9 @@
 <template>
   <nav class="nav">
-    <nuxt-link to="/" class="nav-item" active-color="rebeccapurple" exact>Публикации</nuxt-link>
-    <nuxt-link to="/questions" class="nav-item" active-color="red">Вопрос-ответ</nuxt-link>
-    <nuxt-link to="/tests" class="nav-item" active-color="green">Тесты</nuxt-link>
-    <nuxt-link to="/about" class="nav-item" active-color="orange">Обо мне</nuxt-link>
+    <nuxt-link to="/" class="nav-item" active-color="red" exact>Авторские публикации</nuxt-link>
+    <nuxt-link to="/questions" class="nav-item" active-color="#A18AFF">Отвечаю на вопросы</nuxt-link>
+<!--    <nuxt-link to="/tests" class="nav-item" active-color="green">Тесты</nuxt-link>-->
+    <nuxt-link to="/about" class="nav-item" active-color="#57B359">Обо мне</nuxt-link>
     <nuxt-link to="/contact" class="nav-item" active-color="#00b8ca">Контакты</nuxt-link>
     <span class="nav-indicator"></span>
   </nav>

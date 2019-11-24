@@ -22,7 +22,8 @@ module.exports = {
 
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    '@/theme/index.scss'
+    '@/theme/index.scss',
+    'swiper/css/swiper.css'
   ],
 
   plugins: [

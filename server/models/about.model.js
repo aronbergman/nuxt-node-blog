@@ -5,11 +5,39 @@ const aboutSchema = new Schema({
     type: String,
     required: true
   },
-  contacts: {
+  specialty: {
     type: String,
     required: true
   },
-  text: {
+  dob: {
+    type: String,
+    required: true
+  },
+  goal: {
+    type: String,
+    required: true
+  },
+  titleFirst: {
+    type: String,
+    required: true
+  },
+  contentFirst: {
+    type: String,
+    required: true
+  },
+  titleSecond: {
+    type: String,
+    required: true
+  },
+  contentSecond: {
+    type: String,
+    required: true
+  },
+  titleThird: {
+    type: String,
+    required: true
+  },
+  contentThird: {
     type: String,
     required: true
   },

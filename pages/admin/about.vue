@@ -1,45 +1,80 @@
 <template>
   <div>
-    <h1 class="mb2">Редактирование визитки</h1>
+    <h1 class="mb2">Редактирование страницы «Обо мне»</h1>
     <el-form
       :model="controls"
       :rules="rules"
       ref="form"
       @submit.native.prevent="onSubmit"
     >
+      <h3>Правый столбик</h3>
+
       <el-form-item label="Фамилия Имя Отчество" prop="name">
         <el-input
           v-model="controls.name"
         />
       </el-form-item>
-
-      <el-form-item label="Контакты для связи" prop="contacts">
+      <el-form-item label="Специальность" prop="specialty">
         <el-input
-          type="textarea"
-          v-model="controls.contacts"
-          resize="none"
-          :rows="3"
+          v-model="controls.specialty"
         />
       </el-form-item>
 
-      <el-form-item label="О себе" prop="text">
+      <el-form-item label="Дата рождения" prop="dob">
         <el-input
-          type="textarea"
-          v-model="controls.text"
-          resize="none"
-          :rows="10"
+          v-model="controls.dob"
         />
       </el-form-item>
 
-      <el-button class="mb" type="success" plain @click="previewDialog = true">
-        Предпросмотр
-      </el-button>
+      <el-form-item label="Цель" prop="goal">
+        <el-input
+          v-model="controls.goal"
+        />
+      </el-form-item>
 
-      <el-dialog title="Предпросмотр" :visible.sync="previewDialog">
-        <div :key="controls.text">
-          <vue-markdown>{{controls.text}}</vue-markdown>
-        </div>
-      </el-dialog>
+      <h3>Тело страницы, абзацы</h3>
+
+      <el-form-item label="Первый заголовок" prop="titleFirst">
+        <el-input
+          v-model="controls.titleFirst"
+        />
+      </el-form-item>
+
+      <el-form-item label="Первый абзац" prop="contentFirst">
+        <el-input
+          v-model="controls.contentFirst"
+          type="textarea"
+          :rows="5"
+        />
+      </el-form-item>
+
+      <el-form-item label="Второй заголовок" prop="titleSecond">
+        <el-input
+          v-model="controls.titleSecond"
+        />
+      </el-form-item>
+
+      <el-form-item label="Второй абзац" prop="contentSecond">
+        <el-input
+          v-model="controls.contentSecond"
+          type="textarea"
+          :rows="5"
+        />
+      </el-form-item>
+
+      <el-form-item label="Третий заголовок" prop="titleThird">
+        <el-input
+          v-model="controls.titleThird"
+        />
+      </el-form-item>
+
+      <el-form-item label="Третий абзац" prop="contentThird">
+        <el-input
+          v-model="controls.contentThird"
+          type="textarea"
+          :rows="5"
+        />
+      </el-form-item>
 
       <el-upload
         class="mb"
@@ -77,8 +112,15 @@
       return {
         controls: {
           name: lastCount.name,
-          contacts: lastCount.contacts,
-          text: lastCount.text
+          specialty: lastCount.specialty,
+          dob: lastCount.dob,
+          goal: lastCount.goal,
+          titleFirst: lastCount.titleFirst,
+          titleSecond: lastCount.titleSecond,
+          titleThird: lastCount.titleThird,
+          contentFirst: lastCount.contentFirst,
+          contentSecond: lastCount.contentSecond,
+          contentThird: lastCount.contentThird
         },
       }
     },
@@ -89,13 +131,22 @@
         loading: false,
         rules: {
           text: [
-            { required: true, message: 'Напиши подробнее о себе', trigger: 'blur' }
+            { required: true, message: 'Поле обязательно для заполнения', trigger: 'blur' }
           ],
-          contacts: [
-            { required: true, message: 'Контакты для связи должны быть указаны', trigger: 'blur' }
+          specialty: [
+            { required: true, message: 'Поле обязательно для заполнения', trigger: 'blur' }
           ],
-          name: [
-            { required: true, message: 'Введите имя', trigger: 'blur' }
+          dob: [
+            { required: true, message: 'Поле обязательно для заполнения', trigger: 'blur' }
+          ],
+          goal: [
+            { required: true, message: 'Поле обязательно для заполнения', trigger: 'blur' }
+          ],
+          titleFirst: [
+            { required: true, message: 'Поле обязательно для заполнения', trigger: 'blur' }
+          ],
+          contentFirst: [
+            { required: true, message: 'Поле обязательно для заполнения', trigger: 'blur' }
           ]
         }
       }
@@ -106,24 +157,26 @@
       },
       onSubmit () {
         this.$refs.form.validate(async valid => {
-          if (valid && this.image) {
+          if (valid) {
             this.loading = true
 
             const formData = {
               name: this.controls.name,
-              contacts: this.controls.contacts,
-              text: this.controls.text,
+              specialty: this.controls.specialty,
+              dob: this.controls.dob,
+              goal: this.controls.goal,
+              titleFirst: this.controls.titleFirst,
+              titleSecond: this.controls.titleSecond,
+              titleThird: this.controls.titleThird,
+              contentFirst: this.controls.contentFirst,
+              contentSecond: this.controls.contentSecond,
+              contentThird: this.controls.contentThird,
               image: this.image
             }
 
             try {
               await this.$store.dispatch('about/create', formData)
-              this.controls.text = ''
-              this.controls.name = ''
-              this.controls.contacts = ''
-              this.image = null
-              this.$refs.upload.clearFiles()
-              this.$message.success('Ваша визитка обновлена')
+              this.$message.success('Страница «Обо мне» обновлена')
             } catch (e) {
             } finally {
               this.loading = false

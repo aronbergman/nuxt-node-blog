@@ -3,8 +3,15 @@ const About = require('../models/about.model')
 module.exports.create = async (req, res) => {
   const create = new About({
     name: req.body.name,
-    text: req.body.text,
-    contacts: req.body.contacts,
+    specialty: req.body.specialty,
+    dob: req.body.dob,
+    goal: req.body.goal,
+    titleFirst: req.body.titleFirst,
+    titleSecond: req.body.titleSecond,
+    titleThird: req.body.titleThird,
+    contentFirst: req.body.contentFirst,
+    contentSecond: req.body.contentSecond,
+    contentThird: req.body.contentThird,
     imageUrl: `/${req.file.filename}`
   })
 
@@ -18,7 +25,7 @@ module.exports.create = async (req, res) => {
 
 module.exports.getAbout = async (req, res) => {
   try {
-    const about = await About.find().sort({date: -1})
+    const about = await About.find().sort({ date: -1 })
     res.json(about)
   } catch (e) {
     res.status(500).json(e)

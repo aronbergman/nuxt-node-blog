@@ -5,7 +5,6 @@
       <div class="card__clock-info">
         <i class="far fa-comments"></i> {{post.commentsCount}}
       </div>
-
     </div>
     <div class="card__img" :style="{ backgroundImage: `url('${post.imageUrl}')` }"></div>
     <a href="#" class="card_link">

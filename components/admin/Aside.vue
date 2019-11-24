@@ -14,7 +14,7 @@
     </el-menu-item>
     <el-menu-item index="/admin/about">
       <i class="el-icon-location"></i>
-      <span>Визитка</span>  <hr class="hr">
+      <span>Страница «Обо мне»</span>  <hr class="hr">
     </el-menu-item>
     <el-menu-item index="/admin/create">
       <i class="el-icon-circle-plus-outline"></i>
