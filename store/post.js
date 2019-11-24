@@ -42,7 +42,7 @@ export const actions = {
   async create ({ commit }, { title, text, image, description }) {
     try {
       const fd = new FormData()
-
+      
       fd.append('title', title)
       fd.append('text', text)
       fd.append('commentsCount', '0')

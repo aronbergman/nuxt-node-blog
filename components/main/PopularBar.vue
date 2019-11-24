@@ -1,9 +1,9 @@
 <template>
   <article class="card card--1" @click="openPost(post._id)">
-    <div class="card__info-hover">
+    <div class="card__info-hover"><i class="fas fa-eye"></i>
       {{post.views}}
       <div class="card__clock-info">
-        <span class="card__time">{{post.commentsCount}}</span>
+        <i class="far fa-comments"></i> {{post.commentsCount}}
       </div>
 
     </div>
