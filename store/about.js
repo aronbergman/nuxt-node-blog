@@ -1,5 +1,20 @@
 export const actions = {
-  async create ({ commit }, { name, specialty, dob, goal, titleFirst, titleSecond, titleThird, image, contentFirst, contentSecond, contentThird }) {
+  async create ({ commit }, {
+    name,
+    specialty,
+    dob,
+    goal,
+    titleFirst,
+    titleSecond,
+    titleThird,
+    image,
+    contentFirst,
+    contentSecond,
+    contentThird,
+    phone,
+    email,
+    address
+  }) {
     try {
       const fd = new FormData()
 
@@ -13,6 +28,9 @@ export const actions = {
       fd.append('contentFirst', contentFirst)
       fd.append('contentSecond', contentSecond)
       fd.append('contentThird', contentThird)
+      fd.append('phone', phone)
+      fd.append('email', email)
+      fd.append('address', address)
       fd.append('image', image, image.name)
 
       return await this.$axios.$post('/api/about/admin', fd)

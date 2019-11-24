@@ -11,7 +11,8 @@
       >
         <div class="contact-form__header">
           <h1 class="contact-form__header-title">Обратная связь</h1>
-          <p class="contact-form__header-text">Вы можете задать интересующий Вас вопрос или оставить отзыв. А так, же поделиться вашими мыслями со мной.</p>
+          <p class="contact-form__header-text">Вы можете задать интересующий Вас вопрос или оставить отзыв. А так, же
+            поделиться вашими мыслями со мной.</p>
         </div>
         <el-form-item class="el-form-item" label="Имя" prop="name">
           <el-input v-model="controls.name"/>
@@ -45,17 +46,16 @@
       </el-form>
       <div class="contact-form__aside">
         <h1 class="contact-form__aside-title">Контакты</h1>
-        <div class="contact-form__aside-item"><span>Кабинет расположен&nbsp;по&nbsp;адресу:</span>Москва, ЗАО, м. Фили,
-          ул.&nbsp;Новозаводская 8
+        <div class="contact-form__aside-item"><span>Кабинет расположен&nbsp;по&nbsp;адресу:</span>{{about.address}}
         </div>
         <div class="contact-form__aside-item"><span>Приём ведется по предварительной записи</span></div>
         <div class="contact-form__aside-item"><span>Контактный телефон</span>
-          <a class="contact-form__aside-item__link" href="tel:79999991239">+7 999 999 1239</a>
+          <a class="contact-form__aside-item__link" :href='`tel:${about.phone}`'>{{about.phone}}</a>
           <span>(с 9:00 до 21:00)</span>
         </div>
         <div class="contact-form__aside-item">
           <span>Электронная почта</span>
-          <a class="contact-form__aside-item__link" href="mailto:i.v.makarova@mail.ru">i.v.makarova@mail.ru</a>
+          <a class="contact-form__aside-item__link" :href='`mailto:${about.email}`'>{{about.email}}</a>
         </div>
         <div class="contact-form__aside-item">maps, whatsapp, viber</div>
       </div>
@@ -66,6 +66,12 @@
 
 <script>
   export default {
+    async asyncData ({ store }) {
+      const aboutFetch = await store.dispatch('about/fetch')
+      const lastCount = await aboutFetch.length - 1
+      const about = await aboutFetch[lastCount]
+      return { about }
+    },
     data () {
       return {
         image: null,
@@ -98,6 +104,7 @@
       }
     },
     methods: {
+
       onSubmit () {
         this.$refs.form.validate(async valid => {
           if (valid) {

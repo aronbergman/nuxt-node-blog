@@ -159,7 +159,7 @@
 
     &__content {
       // width: 60%;
-      padding-right: 25px;
+      padding-right: 50px;
 
       @media screen and (max-width: 992px) {
         // width: 55%;
@@ -197,6 +197,7 @@
       font-weight: 700;
       color: #0d0925;
       margin-bottom: 20px;
+      padding-right: 40px;
     }
 
     &__text {

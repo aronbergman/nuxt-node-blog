@@ -84,7 +84,7 @@
             try {
               await this.$store.dispatch('question/create', formData)
               this.controls.question = ''
-              this.controls.qnswer = ''
+              this.controls.answer = ''
               this.controls.name = ''
               this.$message.success('Ответ на вопрос создан')
             } catch (e) {

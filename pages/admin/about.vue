@@ -32,6 +32,24 @@
         />
       </el-form-item>
 
+       <el-form-item label="Телефон" prop="phone">
+        <el-input
+          v-model="controls.phone"
+        />
+      </el-form-item>
+
+      <el-form-item label="Email" prop="email">
+        <el-input
+          v-model="controls.email"
+        />
+      </el-form-item>
+
+      <el-form-item label="Адрес" prop="address">
+        <el-input
+          v-model="controls.address"
+        />
+      </el-form-item>
+
       <h3>Тело страницы, абзацы</h3>
 
       <el-form-item label="Первый заголовок" prop="titleFirst">
@@ -120,7 +138,10 @@
           titleThird: lastCount.titleThird,
           contentFirst: lastCount.contentFirst,
           contentSecond: lastCount.contentSecond,
-          contentThird: lastCount.contentThird
+          contentThird: lastCount.contentThird,
+          phone: lastCount.phone,
+          address: lastCount.address,
+          email: lastCount.email,
         },
       }
     },
@@ -171,6 +192,9 @@
               contentFirst: this.controls.contentFirst,
               contentSecond: this.controls.contentSecond,
               contentThird: this.controls.contentThird,
+              phone: this.controls.phone,
+              email: this.controls.email,
+              address: this.controls.address,
               image: this.image
             }
 
