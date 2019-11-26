@@ -5,7 +5,7 @@
         <!--        {{post.commentsCount}}-->
         <!--        {{post.views}}-->
         <!--       <span>{{ // new Date(post.date).toLocaleString() }}</span> -->
-        <h1 clas="blogTItle">
+        <h1 class="blogTItle">
           {{post.title}}
         </h1>
       </div>
@@ -84,6 +84,10 @@
 
   .container {
     padding: 0 15px;
+
+    @include respond-to($mobile) {
+      transform: scale(1);
+    }
   }
 
   header.blogHeader {
@@ -136,6 +140,11 @@
       text-shadow: -.030em .030em #FFF6E6, -.08em .08em #E7DCD7;
       top: 0.750em;
       z-index: 50;
+
+      @include respond-to($mobile) {
+        margin: 0 auto;
+        font-size: 26px;
+      }
     }
 
     h2 {

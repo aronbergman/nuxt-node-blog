@@ -45,9 +45,17 @@
     flex-direction: row;
     justify-content: flex-end;
 
+    @include respond-to($mobile) {
+      padding: 0 10px;
+    }
+
     .aside-bar {
       width: 300px;
       margin: 0 40px;
+
+      @include respond-to($mobile) {
+        display: none;
+      }
     }
   }
 

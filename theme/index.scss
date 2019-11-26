@@ -12,6 +12,8 @@ html, body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   background: #f5f5f5;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .text-center {

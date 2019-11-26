@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-if="post.imageUrl" class="blog-container" @click="openPost">
+  <div class="blog-container">
+    <div v-if="post.imageUrl" class="blog-row" @click="openPost">
       <div class="blog-header">
         <div class="blog-cover"
              :style="{backgroundImage: `url('${post.imageUrl}')`}">
@@ -27,7 +27,7 @@
       </div>
       <div class="blog-footer">
         <ul>
-          <li class="published-date">{{ post.date | moment("from", "now", true) }} назад</li>
+          <li class="published-date">{{ post.date | moment('from', 'now', true) }} назад</li>
           <li class="comments">
             <svg class="icon-bubble">
               <use xlink:href="#icon-bubble"></use>
@@ -41,7 +41,7 @@
         </ul>
       </div>
     </div>
-    <div v-else class="blog-container" @click="openPost">
+    <div v-else class="blog-row" @click="openPost">
       <div class="blog-header">
         <div class="blog-author--no-cover">
           <h3>Ирина Макарова</h3>
@@ -99,10 +99,14 @@
 </script>
 
 <style lang="scss" scoped>
-
-  // Blog container
-  //-------------------------
   .blog-container {
+    @include respond-to($mobile) {
+      display: flex;
+      padding: 0 20px;
+    }
+  }
+
+  .blog-row {
     background: #fff;
     border-radius: 5px;
     box-shadow: hsla(0, 0, 0, .2) 0 4px 2px -2px;
@@ -113,6 +117,10 @@
     cursor: pointer;
     transform: translateY(0);
     transition: all .3s ease;
+
+    @include respond-to($mobile) {
+      margin: 0 auto 20px;
+    }
 
     &:hover {
       transform: translateY(-5px);
@@ -131,7 +139,7 @@
     }
   }
 
-  .blog-container a {
+  .blog-row a {
     color: #4d4dff;
     text-decoration: none;
     transition: .25s ease;
@@ -142,18 +150,21 @@
     }
   }
 
-  // Blog header
-  //-------------------------
   .blog-cover {
     background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/17779/yosemite-3.jpg");
     background-size: cover;
     border-radius: 5px 5px 0 0;
     height: 15rem;
     box-shadow: inset hsla(0, 0, 0, .2) 0 64px 64px 16px;
+
+    @include respond-to($mobile) {
+      height: 150px;
+    }
   }
 
   .blog-author,
   .blog-author--no-cover {
+    display: none;
     margin: 0 auto;
     padding-top: 1.125rem;
     width: 80%;
@@ -183,8 +194,6 @@
     font-weight: 100;
   }
 
-  // Blog body
-  //-------------------------
   .blog-body {
     margin: 0 auto;
     width: 80%;
@@ -204,6 +213,10 @@
   .blog-summary p {
     color: lighten(#333, 10%);
     margin: 10px 0;
+
+    @include respond-to($mobile) {
+      display: none;
+    }
   }
 
   .blog-tags ul {
@@ -233,8 +246,6 @@
     width: 5rem;
   }
 
-  // Blog footer
-  //-------------------------
   .blog-footer {
     border-top: 1px solid lighten(#333, 70%);
     margin: 0 auto;
@@ -276,12 +287,20 @@
 
   .comments {
     margin-right: 1rem;
+
+    @include respond-to($mobile) {
+      display: none;
+    }
   }
 
   .published-date {
     border: 1px solid lighten(#333, 40%);
     border-radius: 3px;
     padding: 0 .5rem;
+
+    @include respond-to($mobile) {
+      border: 1px solid #eee;
+    }
   }
 
   .numero {
@@ -290,8 +309,6 @@
     top: -6px;
   }
 
-  // Icons
-  //-------------------------
   .icon-star,
   .icon-bubble {
     fill: lighten(#333, 40%);

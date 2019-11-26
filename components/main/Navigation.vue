@@ -65,7 +65,6 @@
 
 <style lang="scss" scoped>
   @import url('https://fonts.googleapis.com/css?family=DM+Sans:500,700&display=swap');
-  @import "./../../theme/mixins";
 
   * {
     box-sizing: border-box;

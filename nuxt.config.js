@@ -32,8 +32,15 @@ module.exports = {
   ],
 
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ['@nuxtjs/style-resources']
   ],
+
+  styleResources: {
+    scss: [
+      'theme/mixins.scss',
+    ]
+  },
 
   axios: {
     baseURL: process.env.BASE_URL
