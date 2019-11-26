@@ -1,0 +1,8 @@
+@mixin respond-to($query) {
+  @media only screen and #{$query}  {
+    @content
+  }
+}
+
+$mobile: '(max-width: 480px)';
+$table: '(max-width: 480px) and (max-width: 640px)';

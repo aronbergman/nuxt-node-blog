@@ -1,7 +1,6 @@
 <template>
   <div class="contact-form__row">
     <div class="contact-form__main">
-
       <el-form
         :model="controls"
         :rules="rules"
@@ -60,7 +59,6 @@
         <div class="contact-form__aside-item">maps, whatsapp, viber</div>
       </div>
     </div>
-
   </div>
 </template>
 
