@@ -43,7 +43,8 @@
           </el-button>
         </el-form-item>
       </el-form>
-      <div class="contact-form__aside">
+      <div :class="{ active: mobileAside }" class="contact-form__aside">
+        <div :class="{ active: mobileAside }" @click="asideHandler" class="contact-form__aside-label"></div>
         <h1 class="contact-form__aside-title">Контакты</h1>
         <div class="contact-form__aside-item"><span>Кабинет расположен&nbsp;по&nbsp;адресу:</span>{{about.address}}
         </div>
@@ -75,6 +76,7 @@
         image: null,
         previewDialog: false,
         loading: false,
+        mobileAside: false,
         controls: {
           name: '',
           email: '',
@@ -102,7 +104,6 @@
       }
     },
     methods: {
-
       onSubmit () {
         this.$refs.form.validate(async valid => {
           if (valid) {
@@ -132,6 +133,9 @@
             this.$message.warning('Дополните форму и повторите отправку')
           }
         })
+      },
+      asideHandler () {
+        this.mobileAside = !this.mobileAside
       }
     }
   }
@@ -146,6 +150,10 @@
       width: 100%;
       margin: 100px auto;
       font-family: 'DM Sans', sans-serif;
+
+      @include respond-to($mobile) {
+        margin: 0;
+      }
     }
 
     &__header {
@@ -154,13 +162,26 @@
       margin-bottom: 30px;
       color: #83818c;
 
+      @include respond-to($mobile) {
+        width: auto;
+        margin-bottom: 0;
+      }
+
       &-title {
         font-size: 27px;
         margin-bottom: 10px;
+
+        @include respond-to($mobile) {
+          text-align: center;
+        }
       }
 
       &-text {
         font-size: 14px;
+
+        @include respond-to($mobile) {
+          text-align: center;
+        }
       }
     }
 
@@ -178,7 +199,17 @@
       box-sizing: content-box;
       background-color: #fff;
       border-left: 5px solid #00b8ca;
-      box-shadow: 0 10px 40px rgba(159, 162, 177, 0.5);
+      box-shadow: 0 10px 40px rgba(159, 162, 177, .5);
+
+      @include respond-to($mobile) {
+        width: 90vw;
+        height: 100%;
+        border-left: none;
+        padding: 0;
+        margin: 0 15px;
+        background-color: transparent;
+        box-shadow: none;
+      }
 
       .el-input__inner,
       .el-textarea__inner {
@@ -188,6 +219,10 @@
 
       .el-textarea__inner {
         border-radius: 20px 20px 5px 20px;
+
+        @include respond-to($mobile) {
+          border-radius: 20px;
+        }
       }
 
       .el-form-item {
@@ -197,6 +232,17 @@
         justify-content: flex-end;
         width: 50%;
         padding: 0 10px;
+
+        @include respond-to($mobile) {
+          width: 100%;
+          margin-bottom: 0;
+          padding-bottom: 10px;
+
+          &__error {
+            width: 100%;
+            text-align: center;
+          }
+        }
 
         .el-form-item__label {
           position: relative;
@@ -228,12 +274,68 @@
 
     &__aside {
       width: 310px;
+      position: relative;
       background-color: #00b8ca;
       display: flex;
       flex-direction: column;
       color: #fff;
       padding: 50px;
       border-radius: 0 30px 30px 0;
+
+      @include respond-to($mobile) {
+        height: 100vh;
+        width: 0;
+        top: 0;
+        right: 0;
+        padding: 0;
+        border-radius: 0;
+
+        &.active {
+          width: 100vw;
+          margin: 0;
+          padding: 100px 50px 0;
+          position: absolute;
+          top: 0;
+        }
+      }
+
+      &-label {
+        display: none;
+
+        @include respond-to($mobile) {
+          display: flex;
+          position: fixed;
+          width: 70px;
+          height: 45px;
+          top: 50%;
+          right: -35px;
+          transform: translate(0, -50%);
+          background-color: #00b8ca;
+          border-radius: 40px;
+
+          &.active {
+            background-color: #fff;
+
+            &:before {
+              background-image: url("./../assets/images/icons/prev-arrow.svg");
+            }
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            transform: translate(0, -50%);
+            background-image: url("./../assets/images/icons/location.svg");
+            background-position: left;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+        }
+      }
 
       &-title {
         font-size: 27px;

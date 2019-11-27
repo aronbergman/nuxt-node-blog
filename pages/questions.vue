@@ -62,9 +62,9 @@
     }
 
     @media screen and (max-width: 768px) {
-      min-height: 500px;
+      min-height: 90vh;
       height: auto;
-      margin: 180px auto;
+      margin: -50px auto 0;
     }
 
 
@@ -117,6 +117,10 @@
       border-radius: 20px;
       transform: translateX(-80px);
 
+      @include respond-to($mobile) {
+        height: 100px;
+      }
+
       overflow: hidden;
 
       &:after {
@@ -166,7 +170,7 @@
       }
 
       @media screen and (max-width: 768px) {
-        margin-top: -80px;
+        margin-top: 0;
         text-align: center;
         padding: 0 30px;
       }
@@ -222,7 +226,10 @@
       right: 30px;
 
       @media screen and (max-width: 576px) {
-        width: 100%;
+        bottom: 20px;
+        width: 230px;
+        left: 50%;
+        transform: translate(-50%, 0);
       }
 
     }
@@ -248,7 +255,7 @@
       @media screen and (max-width: 768px) {
         transform: translateX(-50%);
         left: 50% !important;
-        top: 205px;
+        top: 95px;
         width: 100% !important;
         display: flex;
         justify-content: center;
