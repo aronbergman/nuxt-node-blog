@@ -21,6 +21,9 @@
   import PopularBar from '@/components/main/PopularBar'
 
   export default {
+    head: {
+      title: 'Авторский блог практикующего психолога'
+    },
     layout: 'default',
     validate ({ params }) {
       return Boolean(params.id)

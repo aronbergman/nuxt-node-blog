@@ -25,6 +25,9 @@
   import { questionsPage } from './../assets/questionsPage'
 
   export default {
+    head: {
+      title: `Отвечаю на Ваши ворпосы – Авторский блог практикующего психолога в Москве`
+    },
     mounted () {
       questionsPage()
     },
@@ -202,6 +205,10 @@
       color: #0d0925;
       margin-bottom: 20px;
       padding-right: 40px;
+
+      @include respond-to($mobile) {
+        padding: 0;
+      }
     }
 
     &__text {
@@ -224,6 +231,7 @@
       text-align: center;
       letter-spacing: 1px;
       right: 30px;
+      z-index: 10;
 
       @media screen and (max-width: 576px) {
         bottom: 20px;

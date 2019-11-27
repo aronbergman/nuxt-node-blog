@@ -103,6 +103,9 @@
         }
       }
     },
+    head: {
+      title: `Обратная связь и контакты – Авторский блог практикующего психолога в Москве`
+    },
     methods: {
       onSubmit () {
         this.$refs.form.validate(async valid => {

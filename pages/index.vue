@@ -27,7 +27,8 @@
 
   export default {
     head: {
-      title: 'Главная'
+      title: 'Авторские публикации',
+      description: 'Возрождение нравственности и культуры отношений. Ирина Макарова, публицист, практикующий психолог в Москве'
     },
     async asyncData ({ store }) {
       const posts = await store.dispatch('post/fetch')

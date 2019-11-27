@@ -35,8 +35,8 @@
         mobileAside: false,
       }
     },
-    head: {
-      title: 'Главная'
+     head: {
+      title: `Обо мне – Авторский блог практикующего психолога в Москве`
     },
     async asyncData ({ store }) {
       const aboutFetch = await store.dispatch('about/fetch')
