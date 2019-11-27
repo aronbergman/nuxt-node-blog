@@ -57,7 +57,26 @@
           <span>Электронная почта</span>
           <a class="contact-form__aside-item__link" :href='`mailto:${about.email}`'>{{about.email}}</a>
         </div>
-        <div class="contact-form__aside-item">maps, whatsapp, viber</div>
+        <div class="contact-form__aside-item"></div>
+        <div class="contact-form__aside-item -icon-container">
+          <i class="contact-form__icon -maps"></i>
+          <a href="https://yandex.ru/maps/-/CGdMrAny" target="_blank">
+            Смотреть карту
+          </a>
+        </div>
+        <div class="contact-form__aside-item -icon-container">
+          <i class="contact-form__icon -whatsapp"></i>
+          WhatsApp
+        </div>
+        <div class="contact-form__aside-item -icon-container">
+          <i class="contact-form__icon -viber"></i>
+          Viber
+        </div>
+        <div class="contact-form__aside-item -icon-container">
+          <i class="contact-form__icon -skype"></i>
+          Skype
+        </div>
+
       </div>
     </div>
   </div>
@@ -275,6 +294,31 @@
       }
     }
 
+    &__icon {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      margin-right: 15px;
+      width: 20px;
+      height: 20px;
+
+      &.-maps {
+        background-image: url("./../assets/images/icons/maps.svg");
+      }
+
+      &.-whatsapp {
+        background-image: url("./../assets/images/icons/whatsapp.svg");
+      }
+
+      &.-viber {
+        background-image: url("./../assets/images/icons/viber.svg");
+      }
+
+      &.-skype {
+        background-image: url("./../assets/images/icons/skype.svg");
+      }
+    }
+
     &__aside {
       width: 310px;
       position: relative;
@@ -286,7 +330,8 @@
       border-radius: 0 30px 30px 0;
 
       @include respond-to($mobile) {
-        height: 100vh;
+        max-height: 100vh;
+        overflow-y: scroll;
         width: 0;
         top: 0;
         right: 0;
@@ -351,6 +396,15 @@
         margin-bottom: 20px;
         font-size: 18px;
         font-weight: bold;
+
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+
+        &.-icon-container {
+          flex-direction: row;
+        }
 
         span {
           margin: 5px 0;
