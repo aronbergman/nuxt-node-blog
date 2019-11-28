@@ -94,19 +94,6 @@
         />
       </el-form-item>
 
-      <el-upload
-        class="mb"
-        drag
-        ref="upload"
-        action="https://jsonplaceholder.typicode.com/posts/"
-        :on-change="handleImageChange"
-        :auto-upload="false"
-      >
-        <i class="el-icon-upload"></i>
-        <div class="el-upload__text">Перетащите фото <em>или нажмите</em></div>
-        <div class="el-upload__tip" slot="tip">файлы с расширением jpg/png</div>
-      </el-upload>
-
       <el-form-item>
         <el-button
           type="primary"
@@ -147,7 +134,6 @@
     },
     data () {
       return {
-        image: null,
         previewDialog: false,
         loading: false,
         rules: {
@@ -194,8 +180,7 @@
               contentThird: this.controls.contentThird,
               phone: this.controls.phone,
               email: this.controls.email,
-              address: this.controls.address,
-              image: this.image
+              address: this.controls.address
             }
 
             try {

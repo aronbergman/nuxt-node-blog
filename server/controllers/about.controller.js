@@ -14,8 +14,7 @@ module.exports.create = async (req, res) => {
     contentThird: req.body.contentThird,
     phone: req.body.phone,
     email: req.body.email,
-    address: req.body.address,
-    imageUrl: `/${req.file.filename}`
+    address: req.body.address
   })
 
   try {

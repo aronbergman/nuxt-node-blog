@@ -7,7 +7,6 @@ export const actions = {
     titleFirst,
     titleSecond,
     titleThird,
-    image,
     contentFirst,
     contentSecond,
     contentThird,
@@ -31,7 +30,6 @@ export const actions = {
       fd.append('phone', phone)
       fd.append('email', email)
       fd.append('address', address)
-      fd.append('image', image, image.name)
 
       return await this.$axios.$post('/api/about/admin', fd)
     } catch (e) {
