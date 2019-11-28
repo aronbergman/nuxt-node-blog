@@ -144,6 +144,8 @@
 
     @include respond-to($mobile) {
       display: none;
+      font-size: 20px;
+      font-weight: 800;
 
       &:before {
         display: none;

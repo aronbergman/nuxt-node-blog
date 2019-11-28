@@ -5,7 +5,7 @@
   "author": "Vladilen Minin",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "watch": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate"
@@ -32,6 +32,7 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "swiper": "^5.2.1",
+    "typograf": "^6.10.0",
     "vue-chartjs": "^3.4.0",
     "vue-moment": "^4.0.0",
     "vue-showdown": "^2.4.1"

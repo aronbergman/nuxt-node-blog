@@ -80,6 +80,10 @@
   .wrapper {
     width: 100%;
     margin-left: 50px;
+
+    @include respond-to($mobile) {
+      margin: 0;
+    }
   }
 
   .container {
