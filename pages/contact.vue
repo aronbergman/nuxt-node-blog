@@ -29,7 +29,7 @@
         <el-form-item class="el-form-item" label="Контакт для связи" prop="phone">
           <el-input v-model="controls.phone"/>
         </el-form-item>
-        <el-form-item class="el-form-item" label="Элентронная почта" prop="email">
+        <el-form-item class="el-form-item" label="Электронная почта" prop="email">
           <el-input v-model="controls.email"/>
         </el-form-item>
         <el-form-item>

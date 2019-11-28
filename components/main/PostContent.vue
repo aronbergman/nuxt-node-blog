@@ -29,7 +29,7 @@
               :comment="comment"
             />
           </div>
-          <div class="text-center" v-else>Комментариев нет</div>
+          <div class="text-center" v-else>Станьте первым, кто оставит комментарий!</div>
         </footer>
 
       </article>

@@ -21,8 +21,10 @@
   import PopularBar from '@/components/main/PopularBar'
 
   export default {
-    head: {
-      title: 'Авторский блог практикующего психолога'
+    head () {
+      return {
+        title: `${this.post.title} – Авторский блог психолога`
+      }
     },
     layout: 'default',
     validate ({ params }) {

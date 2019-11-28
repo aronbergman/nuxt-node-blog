@@ -29,4 +29,28 @@ export const actions = {
       throw e
     }
   },
+  async fetchAdminById ({ commit }, id) {
+    try {
+      return await this.$axios.$get(`/api/question/admin/${id}`)
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
+  },
+  async update ({ commit }, { id, question, answer, name }) {
+    try {
+      return await this.$axios.$put(`/api/question/admin/${id}`, { question, answer, name })
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
+  },
+  async remove ({ commit }, id) {
+    try {
+      return await this.$axios.$delete(`/api/question/admin/${id}`)
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
+  },
 }

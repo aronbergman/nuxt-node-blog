@@ -5,6 +5,10 @@ const postSchema = new Schema({
     type: String,
     required: true
   },
+  category: {
+    type: String,
+    default: 'Психология'
+  },
   description: {
     type: String,
     required: true

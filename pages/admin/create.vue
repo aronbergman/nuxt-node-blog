@@ -14,6 +14,12 @@
       />
     </el-form-item>
 
+      <el-form-item label="Категория публикации" prop="category">
+      <el-input
+        v-model="controls.category"
+      />
+    </el-form-item>
+
     <el-form-item label="Описание статьи на главной странице" prop="description">
       <el-input
         type="textarea"
@@ -106,6 +112,7 @@
 
             const formData = {
               title: this.controls.title,
+              category: this.controls.category,
               description: this.controls.description,
               text: this.controls.text,
               image: this.image
@@ -114,6 +121,7 @@
             try {
               await this.$store.dispatch('post/create', formData)
               this.controls.text = ''
+              this.controls.category = ''
               this.controls.title = ''
               this.controls.description = ''
               this.image = null

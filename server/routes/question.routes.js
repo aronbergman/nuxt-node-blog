@@ -18,6 +18,24 @@ router.get(
   ctr.getAll
 )
 
+router.get(
+  '/admin/:id',
+  passport.authenticate('jwt', { session: false }),
+  ctr.getById
+)
+
+router.put(
+  '/admin/:id',
+  passport.authenticate('jwt', { session: false }),
+  ctr.update
+)
+
+router.delete(
+  '/admin/:id',
+  passport.authenticate('jwt', { session: false }),
+  ctr.remove
+)
+
 // /api/post
 router.get('/', ctr.getAll)
 

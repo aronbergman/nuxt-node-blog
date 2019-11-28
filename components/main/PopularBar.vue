@@ -11,10 +11,10 @@
       <div class="card__img--hover" :style="{ backgroundImage: `url('${post.imageUrl}')` }"></div>
     </a>
     <div class="card__info">
-      <span class="card__category">Психология</span>
+      <span class="card__category">{{post.category}}</span>
       <h3 class="card__title">{{post.title}}</h3>
       <span class="card__by">
-        <a href="#" class="card__author" title="author">teg, teg, teg</a>
+<!--        <a href="#" class="card__author" title="author">teg, teg, teg</a>-->
       </span>
     </div>
   </article>

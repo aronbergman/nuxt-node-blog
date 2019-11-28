@@ -31,20 +31,21 @@ export const actions = {
       throw e
     }
   },
-  async update ({ commit }, { id, text }) {
+  async update ({ commit }, { id, title, category, description, text }) {
     try {
-      return await this.$axios.$put(`/api/post/admin/${id}`, { text })
+      return await this.$axios.$put(`/api/post/admin/${id}`, { title, category, description, text })
     } catch (e) {
       commit('setError', e, { root: true })
       throw e
     }
   },
-  async create ({ commit }, { title, text, image, description }) {
+  async create ({ commit }, { title, category, text, image, description }) {
     try {
       const fd = new FormData()
-      
+
       fd.append('title', title)
       fd.append('text', text)
+      fd.append('category', category)
       fd.append('commentsCount', '0')
       fd.append('description', description)
       fd.append('image', image, image.name)

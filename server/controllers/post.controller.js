@@ -7,6 +7,7 @@ module.exports.create = async (req, res) => {
   const post = new Post({
     title: req.body.title,
     text: tp.execute(req.body.text),
+    category: req.body.category,
     description: req.body.description,
     imageUrl: `/${req.file.filename}`
   })
@@ -49,7 +50,10 @@ module.exports.getById = async (req, res) => {
 
 module.exports.update = async (req, res) => {
   const $set = {
-    text: req.body.text
+    text: req.body.text,
+    title: req.body.title,
+    category: req.body.category,
+    description: req.body.description
   }
   try {
     const post = await Post.findOneAndUpdate({
