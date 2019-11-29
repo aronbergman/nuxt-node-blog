@@ -35,7 +35,7 @@
         mobileAside: false,
       }
     },
-     head: {
+    head: {
       title: `Обо мне – Авторский блог практикующего психолога в Москве`
     },
     async asyncData ({ store }) {
@@ -79,7 +79,9 @@
       }
 
       &-text {
-        font-size: 14px;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: justify;
       }
     }
 

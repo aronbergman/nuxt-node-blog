@@ -72,11 +72,11 @@
           <i class="contact-form__icon -viber"></i>
           Viber
         </div>
+        <div class="contact-form__aside-item"></div>
         <div class="contact-form__aside-item -icon-container">
-          <i class="contact-form__icon -skype"></i>
-          Skype
+          <i class="contact-form__icon -lock"></i>
+          <nuxt-link to="/admin">Авторизация</nuxt-link>
         </div>
-
       </div>
     </div>
   </div>
@@ -317,6 +317,10 @@
       &.-skype {
         background-image: url("./../assets/images/icons/skype.svg");
       }
+
+      &.-lock {
+        background-image: url("./../assets/images/icons/lock.svg");
+      }
     }
 
     &__aside {
@@ -396,6 +400,10 @@
         margin-bottom: 20px;
         font-size: 18px;
         font-weight: bold;
+
+        &.-login {
+          align-items: center;
+        }
 
         a {
           color: #fff;

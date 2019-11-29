@@ -1,14 +1,14 @@
 const Post = require('../models/post.model')
 const User = require('../models/user.model')
 const Typograf = require('typograf')
+const tp = new Typograf({ locale: ['ru', 'en-US'] })
 
 module.exports.create = async (req, res) => {
-  const tp = new Typograf({ locale: ['ru', 'en-US'] })
   const post = new Post({
-    title: req.body.title,
+    title: tp.execute(req.body.title),
     text: tp.execute(req.body.text),
     category: req.body.category,
-    description: req.body.description,
+    description: tp.execute(req.body.description),
     imageUrl: `/${req.file.filename}`
   })
 
@@ -50,10 +50,10 @@ module.exports.getById = async (req, res) => {
 
 module.exports.update = async (req, res) => {
   const $set = {
-    text: req.body.text,
-    title: req.body.title,
+    text: tp.execute(req.body.text),
+    title: tp.execute(req.body.title),
     category: req.body.category,
-    description: req.body.description
+    description: tp.execute(req.body.description)
   }
   try {
     const post = await Post.findOneAndUpdate({

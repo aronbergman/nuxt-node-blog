@@ -1,10 +1,12 @@
 const Question = require('../models/question.model')
+const Typograf = require('typograf')
+const tp = new Typograf({ locale: ['ru', 'en-US'] })
 
 module.exports.create = async (req, res) => {
 
   const question = new Question({
-    question: req.body.question,
-    answer: req.body.answer,
+    question: tp.execute(req.body.question),
+    answer: tp.execute(req.body.answer),
     name: req.body.name
   })
   try {
@@ -35,8 +37,8 @@ module.exports.getById = async (req, res) => {
 
 module.exports.update = async (req, res) => {
   const $set = {
-    question: req.body.question,
-    answer: req.body.answer,
+    question: tp.execute(req.body.question),
+    answer: tp.execute(req.body.answer),
     name: req.body.name
   }
   try {

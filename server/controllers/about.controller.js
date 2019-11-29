@@ -1,4 +1,6 @@
 const About = require('../models/about.model')
+const Typograf = require('typograf')
+const tp = new Typograf({ locale: ['ru', 'en-US'] })
 
 module.exports.create = async (req, res) => {
   const create = new About({
@@ -6,12 +8,12 @@ module.exports.create = async (req, res) => {
     specialty: req.body.specialty,
     dob: req.body.dob,
     goal: req.body.goal,
-    titleFirst: req.body.titleFirst,
-    titleSecond: req.body.titleSecond,
-    titleThird: req.body.titleThird,
-    contentFirst: req.body.contentFirst,
-    contentSecond: req.body.contentSecond,
-    contentThird: req.body.contentThird,
+    titleFirst: tp.execute(req.body.titleFirst),
+    titleSecond: tp.execute(req.body.titleSecond),
+    titleThird: tp.execute(req.body.titleThird),
+    contentFirst: tp.execute(req.body.contentFirst),
+    contentSecond: tp.execute(req.body.contentSecond),
+    contentThird: tp.execute(req.body.contentThird),
     phone: req.body.phone,
     email: req.body.email,
     address: req.body.address

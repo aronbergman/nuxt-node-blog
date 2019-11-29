@@ -96,7 +96,6 @@
             }
 
             try {
-              Э
               await this.$store.dispatch('question/update', formData)
               this.$message.success('Вопрос обновлен')
               this.loading = false
