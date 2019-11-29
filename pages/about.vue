@@ -68,7 +68,7 @@
     }
 
     &__item {
-      width: 450px;
+      width: 100%;
       text-align: left;
       margin-bottom: 30px;
       color: #83818c;
@@ -80,7 +80,7 @@
 
       &-text {
         font-size: 18px;
-        line-height: 25px;
+        line-height: 27px;
         text-align: justify;
       }
     }
