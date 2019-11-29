@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "watch": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
-    "build": "nuxt build",
+    "build": "git reset --hard origin/master && npm install --no-optional --no-shrinkwrap --no-package-lock && nuxt build && reboot",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate"
   },
