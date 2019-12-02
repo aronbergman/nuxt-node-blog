@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <div :class="{ active: mobileAside }" class="about-page__aside">
+      <div :class="{ active: mobileAside }" class="about-page__aside" v-scroll-lock="mobileAside" ref="formAside">
         <div :class="{ active: mobileAside }" @click="asideHandler" class="about-page__aside-label"></div>
         <h1 class="about-page__aside-title">{{about.name}}</h1>
         <div class="about-page__aside-item">{{about.specialty}}</div>
@@ -47,6 +47,9 @@
     methods: {
       asideHandler () {
         this.mobileAside = !this.mobileAside
+        this.$nextTick(() => {
+          this.$refs.formAside.scrollTop = 0
+        })
       }
     }
   }

@@ -43,7 +43,7 @@
           </el-button>
         </el-form-item>
       </el-form>
-      <div :class="{ active: mobileAside }" class="contact-form__aside">
+      <div :class="{ active: mobileAside }" class="contact-form__aside" v-scroll-lock="mobileAside" ref="formAside">
         <div :class="{ active: mobileAside }" @click="asideHandler" class="contact-form__aside-label"></div>
         <h1 class="contact-form__aside-title">Контакты</h1>
         <div class="contact-form__aside-item"><span>Кабинет расположен&nbsp;по&nbsp;адресу:</span>{{about.address}}
@@ -158,6 +158,9 @@
       },
       asideHandler () {
         this.mobileAside = !this.mobileAside
+        this.$nextTick(() => {
+            this.$refs.formAside.scrollTop = 0;
+        });
       }
     }
   }

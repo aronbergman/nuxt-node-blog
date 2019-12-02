@@ -3,6 +3,9 @@ import Element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/ru-RU'
 import DateFilter from '@/filters/date.filter'
 import VueShowdown from 'vue-showdown'
+import VScrollLock from 'v-scroll-lock'
+
+Vue.use(VScrollLock)
 
 Vue.use(VueShowdown, {
   options: {
