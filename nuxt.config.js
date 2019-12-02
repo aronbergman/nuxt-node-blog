@@ -50,6 +50,11 @@ module.exports = {
         // accurateTrackBounce:true,
       }
     ],
+    ['@nuxtjs/robots', {
+      UserAgent: '*',
+      Allow: '*',
+      Disallow: '/admin'
+    }]
   ],
 
   styleResources: {

@@ -963,6 +963,11 @@
     consola "^2.5.6"
     http-proxy-middleware "^0.19.1"
 
+"@nuxtjs/robots@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/robots/-/robots-2.4.2.tgz#9a96c91abb70e39b414eec502ef1cf7d5ef0235e"
+  integrity sha512-BW3qhvxlPBKlMkZHtARFPeliFraiZHS28G3j4qgRbSfOBtHC0yDX3Dnq1LkQMzAbPfbw6A1L3sdjgBVZZnfFAw==
+
 "@nuxtjs/style-resources@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@nuxtjs/style-resources/-/style-resources-1.0.0.tgz#7c4d6be19d7f7cc5d687d689f2ab16c0b94773a1"
@@ -8249,6 +8254,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typograf@^6.10.0:
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/typograf/-/typograf-6.10.0.tgz#bc573f3c4a540672d2a9c16b3f3ec7730389e194"
+  integrity sha512-vnclxYomZqoN8C1+knZ+oa6oU7ATEgzurjpyiDO8QbPI1iJDRKqafdWPXMIr5sUahCL6mAnGerLYOtka0x54lw==
 
 ua-parser-js@^0.7.20:
   version "0.7.20"

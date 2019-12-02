@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/robots": "^2.4.2",
     "@nuxtjs/yandex-metrika": "^1.0.3",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
