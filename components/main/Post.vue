@@ -10,20 +10,22 @@
         </div>
       </div>
       <div class="blog-body">
-        <div class="blog-title">
-          <h1>{{post.title}}</h1>
-        </div>
-<!--        <div class="blog-summary">-->
-<!--          <p>{{post.description}}</p>-->
-<!--        </div>-->
-        <!--        <div class="blog-tags">-->
-        <!--          <ul>-->
-        <!--            <li><a href="#">css</a></li>-->
-        <!--            <li><a href="#">web design</a></li>-->
-        <!--            <li><a href="#">codepen</a></li>-->
-        <!--            <li><a href="https://twitter.com/russbeye">twitter</a></li>-->
-        <!--          </ul>-->
-        <!--        </div>-->
+        <nuxt-link :to='`post/${post._id}`'>
+          <div class="blog-title">
+            <h1>{{post.title}}</h1>
+          </div>
+          <div class="blog-summary">
+            <p>{{post.description}}</p>
+          </div>
+          <!--        <div class="blog-tags">-->
+          <!--          <ul>-->
+          <!--            <li><a href="#">css</a></li>-->
+          <!--            <li><a href="#">web design</a></li>-->
+          <!--            <li><a href="#">codepen</a></li>-->
+          <!--            <li><a href="https://twitter.com/russbeye">twitter</a></li>-->
+          <!--          </ul>-->
+          <!--        </div>-->
+        </nuxt-link>
       </div>
       <div class="blog-footer">
         <ul>
@@ -38,43 +40,6 @@
               <use xlink:href="#icon-star"></use>
             </svg>
             <span class="numero">{{ post.views === 0 ? '...' : post.views }}</span></li>
-        </ul>
-      </div>
-    </div>
-    <div v-else class="blog-row" @click="openPost">
-      <div class="blog-header">
-        <div class="blog-author--no-cover">
-          <h3>Ирина Макарова</h3>
-        </div>
-      </div>
-      <div class="blog-body">
-        <div class="blog-title">
-          <h1><a href="#">{{post.title}}</a></h1>
-        </div>
-        <div class="blog-summary">
-          <p>{{post.description}}</p>
-        </div>
-        <div class="blog-tags">
-          <ul>
-            <li><a href="#">design</a></li>
-            <li><a href="#">web dev</a></li>
-            <li><a href="#">css</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="blog-footer">
-        <ul>
-          <li class="published-date">{{ post.date | date }}</li>
-          <li class="comments"><a href="#">
-            <svg class="icon-bubble">
-              <use xlink:href="#icon-bubble"></use>
-            </svg>
-            <span class="numero">{{post.commentsCount}}</span></a></li>
-          <li class="shares"><a href="#">
-            <svg class="icon-star">
-              <use xlink:href="#icon-star"></use>
-            </svg>
-            <span class="numero">{{ post.views }}</span></a></li>
         </ul>
       </div>
     </div>
