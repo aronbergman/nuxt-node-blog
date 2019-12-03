@@ -17,11 +17,13 @@
       </div>
 
       <div :class="{ active: mobileAside }" class="about-page__aside" v-scroll-lock="mobileAside" ref="formAside">
-        <div :class="{ active: mobileAside }" @click="asideHandler" class="about-page__aside-label"></div>
-        <h1 class="about-page__aside-title">{{about.name}}</h1>
-        <div class="about-page__aside-item">{{about.specialty}}</div>
-        <div class="about-page__aside-item"><span>дата рождения</span>{{about.dob}}</div>
-        <div class="about-page__aside-item"><span>моя цель</span><strong>{{about.goal}}</strong>
+        <div class="contact-form__aside-content">
+          <div :class="{ active: mobileAside }" @click="asideHandler" class="about-page__aside-label"></div>
+          <h1 class="about-page__aside-title">{{about.name}}</h1>
+          <div class="about-page__aside-item">{{about.specialty}}</div>
+          <div class="about-page__aside-item"><span>дата рождения</span>{{about.dob}}</div>
+          <div class="about-page__aside-item"><span>моя цель</span><strong>{{about.goal}}</strong>
+          </div>
         </div>
       </div>
     </div>
@@ -127,11 +129,18 @@
 
       @include respond-to($mobile) {
         height: 100vh;
+        overflow: hidden;
+        overflow-y: scroll;
         width: 0;
         top: 0;
         right: 0;
         padding: 0;
         border-radius: 0;
+
+        &-content {
+          min-height: auto;
+          height: auto;
+        }
 
         &.active {
           width: 100vw;

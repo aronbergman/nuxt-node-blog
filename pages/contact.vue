@@ -44,38 +44,40 @@
         </el-form-item>
       </el-form>
       <div :class="{ active: mobileAside }" class="contact-form__aside" v-scroll-lock="mobileAside" ref="formAside">
-        <div :class="{ active: mobileAside }" @click="asideHandler" class="contact-form__aside-label"></div>
-        <h1 class="contact-form__aside-title">Контакты</h1>
-        <div class="contact-form__aside-item"><span>Кабинет расположен&nbsp;по&nbsp;адресу:</span>{{about.address}}
-        </div>
-        <div class="contact-form__aside-item"><span>Приём ведется по предварительной записи</span></div>
-        <div class="contact-form__aside-item"><span>Контактный телефон</span>
-          <a class="contact-form__aside-item__link" :href='`tel:${about.phone}`'>{{about.phone}}</a>
-          <span>(с 9:00 до 21:00)</span>
-        </div>
-        <div class="contact-form__aside-item">
-          <span>Электронная почта</span>
-          <a class="contact-form__aside-item__link" :href='`mailto:${about.email}`'>{{about.email}}</a>
-        </div>
-        <div class="contact-form__aside-item"></div>
-        <div class="contact-form__aside-item -icon-container">
-          <i class="contact-form__icon -maps"></i>
-          <a href="https://yandex.ru/maps/-/CGdMrAny" target="_blank">
-            Смотреть карту
-          </a>
-        </div>
-        <div class="contact-form__aside-item -icon-container">
-          <i class="contact-form__icon -whatsapp"></i>
-          WhatsApp
-        </div>
-        <div class="contact-form__aside-item -icon-container">
-          <i class="contact-form__icon -viber"></i>
-          Viber
-        </div>
-        <div class="contact-form__aside-item"></div>
-        <div class="contact-form__aside-item -icon-container">
-          <i class="contact-form__icon -lock"></i>
-          <nuxt-link to="/admin">Авторизация</nuxt-link>
+        <div class="contact-form__aside-content">
+          <div :class="{ active: mobileAside }" @click="asideHandler" class="contact-form__aside-label"></div>
+          <h1 class="contact-form__aside-title">Контакты</h1>
+          <div class="contact-form__aside-item"><span>Кабинет расположен&nbsp;по&nbsp;адресу:</span>{{about.address}}
+          </div>
+          <div class="contact-form__aside-item"><span>Приём ведется по предварительной записи</span></div>
+          <div class="contact-form__aside-item"><span>Контактный телефон</span>
+            <a class="contact-form__aside-item__link" :href='`tel:${about.phone}`'>{{about.phone}}</a>
+            <span>(с 9:00 до 21:00)</span>
+          </div>
+          <div class="contact-form__aside-item">
+            <span>Электронная почта</span>
+            <a class="contact-form__aside-item__link" :href='`mailto:${about.email}`'>{{about.email}}</a>
+          </div>
+          <div class="contact-form__aside-item"></div>
+          <div class="contact-form__aside-item -icon-container">
+            <i class="contact-form__icon -maps"></i>
+            <a href="https://yandex.ru/maps/-/CGdMrAny" target="_blank">
+              Смотреть карту
+            </a>
+          </div>
+          <div class="contact-form__aside-item -icon-container">
+            <i class="contact-form__icon -whatsapp"></i>
+            WhatsApp
+          </div>
+          <div class="contact-form__aside-item -icon-container">
+            <i class="contact-form__icon -viber"></i>
+            Viber
+          </div>
+          <div class="contact-form__aside-item"></div>
+          <div class="contact-form__aside-item -icon-container">
+            <i class="contact-form__icon -lock"></i>
+            <nuxt-link to="/admin">Авторизация</nuxt-link>
+          </div>
         </div>
       </div>
     </div>
@@ -159,8 +161,8 @@
       asideHandler () {
         this.mobileAside = !this.mobileAside
         this.$nextTick(() => {
-            this.$refs.formAside.scrollTop = 0;
-        });
+          this.$refs.formAside.scrollTop = 0
+        })
       }
     }
   }
@@ -337,20 +339,29 @@
       border-radius: 0 30px 30px 0;
 
       @include respond-to($mobile) {
-        max-height: 100vh;
-        overflow-y: scroll;
+        height: 100vh;
+        overflow: hidden;
         width: 0;
         top: 0;
         right: 0;
         padding: 0;
         border-radius: 0;
 
+        &-content {
+          overflow-y: scroll;
+          min-height: auto;
+          height: auto;
+        }
+
         &.active {
-          width: 100vw;
-          margin: 0;
-          padding: 100px 50px 0;
           position: absolute;
-          top: 0;
+          width: 100vw;
+
+          .contact-form__aside-content {
+            padding: 100px 50px 0;
+            margin: 0;
+            top: 0;
+          }
         }
       }
 
