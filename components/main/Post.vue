@@ -13,9 +13,9 @@
         <div class="blog-title">
           <h1>{{post.title}}</h1>
         </div>
-        <div class="blog-summary">
-          <p>{{post.description}}</p>
-        </div>
+<!--        <div class="blog-summary">-->
+<!--          <p>{{post.description}}</p>-->
+<!--        </div>-->
         <!--        <div class="blog-tags">-->
         <!--          <ul>-->
         <!--            <li><a href="#">css</a></li>-->
@@ -313,9 +313,8 @@
   .icon-bubble {
     fill: lighten(#333, 40%);
     height: 24px;
-    margin-right: .5rem;
-    transition: .25s ease;
-    width: 24px;
+    margin-right: 5px;
+    width: 17px;
 
     &:hover {
       fill: #ff4d4d;

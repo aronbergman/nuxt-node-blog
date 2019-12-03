@@ -153,6 +153,11 @@
 
     h2 {
       font-size: 2.350em;
+
+      @include respond-to($mobile) {
+        font-size: 24px;
+        text-align: center;
+      }
     }
 
     h3 {
@@ -384,6 +389,6 @@
   }
 
   footer {
-    margin-top: 50px;
+    margin: 50px 0;
   }
 </style>

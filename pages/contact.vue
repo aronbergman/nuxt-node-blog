@@ -86,6 +86,7 @@
 
 <script>
   export default {
+    scrollToTop: true,
     async asyncData ({ store }) {
       const aboutFetch = await store.dispatch('about/fetch')
       const lastCount = await aboutFetch.length - 1
@@ -160,9 +161,6 @@
       },
       asideHandler () {
         this.mobileAside = !this.mobileAside
-        this.$nextTick(() => {
-          this.$refs.formAside.scrollTop = 0
-        })
       }
     }
   }
@@ -339,9 +337,8 @@
       border-radius: 0 30px 30px 0;
 
       @include respond-to($mobile) {
-        height: 100vh;
-        overflow: hidden;
         width: 0;
+        height: 0;
         top: 0;
         right: 0;
         padding: 0;
@@ -354,8 +351,10 @@
         }
 
         &.active {
-          position: absolute;
+          position: fixed;
           width: 100vw;
+          height: 100vh;
+          overflow: hidden;
 
           .contact-form__aside-content {
             padding: 100px 50px 0;
@@ -426,6 +425,10 @@
 
         &.-icon-container {
           flex-direction: row;
+
+          @include respond-to($mobile) {
+            display: none;
+          }
         }
 
         span {

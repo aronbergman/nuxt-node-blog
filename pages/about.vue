@@ -32,6 +32,7 @@
 
 <script>
   export default {
+    scrollToTop: true,
     data () {
       return {
         mobileAside: false,
@@ -128,26 +129,30 @@
       border-radius: 0 30px 30px 0;
 
       @include respond-to($mobile) {
-        height: 100vh;
-        overflow: hidden;
-        overflow-y: scroll;
         width: 0;
+        height: 0;
         top: 0;
         right: 0;
         padding: 0;
         border-radius: 0;
 
         &-content {
+          overflow-y: scroll;
           min-height: auto;
           height: auto;
         }
 
         &.active {
+          position: fixed;
           width: 100vw;
-          margin: 0;
-          padding: 100px 50px 0;
-          position: absolute;
-          top: 0;
+          height: 100vh;
+          overflow: hidden;
+
+          .contact-form__aside-content {
+            padding: 100px 50px 0;
+            margin: 0;
+            top: 0;
+          }
         }
       }
 

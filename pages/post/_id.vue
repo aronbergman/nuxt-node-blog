@@ -37,7 +37,7 @@
       posts = posts.filter(x => x._id !== post._id)
       return {
         post: { ...post, views: ++post.views },
-        posts: posts.slice(0, 2)
+        posts: posts.slice(0, 4)
       }
     },
     components: { PopularBar, PostContent }
@@ -55,6 +55,7 @@
     }
 
     .aside-bar {
+      height: 100%;
       width: 300px;
       margin: 0 40px;
 
