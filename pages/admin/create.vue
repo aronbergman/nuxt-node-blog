@@ -107,7 +107,7 @@
       },
       onSubmit () {
         this.$refs.form.validate(async valid => {
-          if (valid && this.image) {
+          if (valid) {
             this.loading = true
 
             const formData = {
@@ -115,7 +115,7 @@
               category: this.controls.category,
               description: this.controls.description,
               text: this.controls.text,
-              image: this.image
+              image: this.image ? this.image : null
             }
 
             try {

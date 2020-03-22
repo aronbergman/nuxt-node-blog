@@ -9,7 +9,7 @@ module.exports.create = async (req, res) => {
     text: tp.execute(req.body.text),
     category: req.body.category,
     description: tp.execute(req.body.description),
-    imageUrl: `/${req.file.filename}`
+    imageUrl: req.file ? `/${req.file.filename}` : null
   })
 
   try {

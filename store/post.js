@@ -48,7 +48,7 @@ export const actions = {
       fd.append('category', category)
       fd.append('commentsCount', '0')
       fd.append('description', description)
-      fd.append('image', image, image.name)
+      // fd.append('image', image, image.name)
 
       return await this.$axios.$post('/api/post/admin', fd)
     } catch (e) {
