@@ -10,8 +10,7 @@
       >
         <div class="contact-form__header">
           <h1 class="contact-form__header-title">Обратная связь</h1>
-          <p class="contact-form__header-text">Вы можете задать интересующий Вас вопрос или оставить отзыв. А так, же
-            поделиться вашими мыслями со мной.</p>
+          <p class="contact-form__header-text">Вы можете задать интересующий Вас вопрос или оставить отзыв. А ещё поделиться вашими мыслями со мной.</p>
         </div>
         <el-form-item class="el-form-item" label="Имя" prop="name">
           <el-input v-model="controls.name"/>
