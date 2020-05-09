@@ -32,7 +32,7 @@
         />
       </el-form-item>
 
-       <el-form-item label="Телефон" prop="phone">
+      <el-form-item label="Телефон" prop="phone">
         <el-input
           v-model="controls.phone"
         />
@@ -116,19 +116,19 @@
       const lastCount = await about[about.length - 1]
       return {
         controls: {
-          name: lastCount.name,
-          specialty: lastCount.specialty,
-          dob: lastCount.dob,
-          goal: lastCount.goal,
-          titleFirst: lastCount.titleFirst,
-          titleSecond: lastCount.titleSecond,
-          titleThird: lastCount.titleThird,
-          contentFirst: lastCount.contentFirst,
-          contentSecond: lastCount.contentSecond,
-          contentThird: lastCount.contentThird,
-          phone: lastCount.phone,
-          address: lastCount.address,
-          email: lastCount.email,
+          name: lastCount ? lastCount.name : '',
+          specialty: lastCount ? lastCount.specialty : '',
+          dob: lastCount ? lastCount.dob : '',
+          goal: lastCount ? lastCount.goal : '',
+          titleFirst: lastCount ? lastCount.titleFirst : '',
+          titleSecond: lastCount ? lastCount.titleSecond : '',
+          titleThird: lastCount ? lastCount.titleThird : '',
+          contentFirst: lastCount ? lastCount.contentFirst : '',
+          contentSecond: lastCount ? lastCount.contentSecond : '',
+          contentThird: lastCount ? lastCount.contentThird : '',
+          phone: lastCount ? lastCount.phone : '',
+          address: lastCount ? lastCount.address : '',
+          email: lastCount ? lastCount.email : '',
         },
       }
     },
