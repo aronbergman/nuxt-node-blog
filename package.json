@@ -37,7 +37,7 @@
     "typograf": "^6.10.0",
     "v-scroll-lock": "^1.1.0",
     "vue-chartjs": "^3.4.0",
-    "vue-moment": "^4.0.0",
+    "vue-moment": "^4.1.0",
     "vue-showdown": "^2.4.1"
   },
   "devDependencies": {
