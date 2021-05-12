@@ -17,7 +17,7 @@
     "@nuxtjs/yandex-metrika": "^1.0.3",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
-    "chart.js": "^2.7.3",
+    "chart.js": "^2.9.4",
     "cookie": "^0.3.1",
     "cross-env": "^5.2.0",
     "dotenv": "^8.2.0",
