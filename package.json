@@ -24,7 +24,7 @@
     "element-ui": "^2.4.11",
     "express": "^4.16.4",
     "js-cookie": "^2.2.0",
-    "jsonwebtoken": "^8.4.0",
+    "jsonwebtoken": "^9.0.0",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
     "mongoose": "^5.4.13",
